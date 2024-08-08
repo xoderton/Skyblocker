@@ -161,6 +161,19 @@ public class OtherLocationsCategory {
                                 .build())
                         .build())
 
+                //Glowing Mushroom
+                .group(OptionGroup.createBuilder()
+                        .name(Text.translatable("skyblocker.config.otherLocations.glowingMushroom"))
+                        .collapsed(false)
+                        .option(Option.<Boolean>createBuilder()
+                                .name(Text.translatable("skyblocker.config.otherLocations.glowingMushroom.enableStrangeMushroomHelper"))
+                                .binding(defaults.otherLocations.glowingMushroom.enableStrangeMushroomHelper,
+                                        () -> config.otherLocations.glowingMushroom.enableStrangeMushroomHelper,
+                                        newValue -> config.otherLocations.glowingMushroom.enableStrangeMushroomHelper = newValue)
+                                .controller(ConfigUtils::createBooleanController)
+                                .build())
+                        .build())
+
                 .build();
     }
 }

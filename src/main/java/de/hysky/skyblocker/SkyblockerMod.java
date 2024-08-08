@@ -42,6 +42,7 @@ import de.hysky.skyblocker.skyblock.item.tooltip.ItemTooltip;
 import de.hysky.skyblocker.skyblock.item.tooltip.TooltipManager;
 import de.hysky.skyblocker.skyblock.itemlist.ItemRepository;
 import de.hysky.skyblocker.skyblock.mayors.JerryTimer;
+import de.hysky.skyblocker.skyblock.mushroom.GlowingMushrooms;
 import de.hysky.skyblocker.skyblock.profileviewer.ProfileViewerScreen;
 import de.hysky.skyblocker.skyblock.rift.TheRift;
 import de.hysky.skyblocker.skyblock.searchoverlay.SearchOverManager;
@@ -125,6 +126,7 @@ public class SkyblockerMod implements ClientModInitializer {
         Relics.init();
         MythologicalRitual.init();
         EnderNodes.init();
+        GlowingMushrooms.init();
         OrderedWaypoints.init();
         BackpackPreview.init();
         ItemCooldowns.init();

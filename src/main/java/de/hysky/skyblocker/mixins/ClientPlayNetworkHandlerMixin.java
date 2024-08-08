@@ -14,6 +14,7 @@ import de.hysky.skyblocker.skyblock.dwarven.CrystalsChestHighlighter;
 import de.hysky.skyblocker.skyblock.end.BeaconHighlighter;
 import de.hysky.skyblocker.skyblock.end.EnderNodes;
 import de.hysky.skyblocker.skyblock.end.TheEnd;
+import de.hysky.skyblocker.skyblock.mushroom.GlowingMushrooms;
 import de.hysky.skyblocker.skyblock.waypoint.MythologicalRitual;
 import de.hysky.skyblocker.utils.SlayerUtils;
 import de.hysky.skyblocker.utils.Utils;
@@ -104,6 +105,7 @@ public abstract class ClientPlayNetworkHandlerMixin {
         DojoManager.onParticle(packet);
         CrystalsChestHighlighter.onParticle(packet);
         EnderNodes.onParticle(packet);
+        GlowingMushrooms.onParticle(packet);
         WishingCompassSolver.onParticle(packet);
     }
 

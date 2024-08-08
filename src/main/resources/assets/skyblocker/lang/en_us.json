@@ -595,6 +595,9 @@
   "skyblocker.config.otherLocations.spidersDen.relics.enableRelicsHelper": "Enable Hidden Relics Helper",
   "skyblocker.config.otherLocations.spidersDen.relics.highlightFoundRelics": "Highlight Found Relics",
 
+  "skyblocker.config.otherLocations.glowingMushroom": "Glowing Mushroom",
+  "skyblocker.config.otherLocations.glowingMushroom.enableStrangeMushroomHelper": "Enable Strange Mushroom Helper",
+
   "skyblocker.config.quickNav": "Quick Navigation",
   "skyblocker.config.quickNav.button": "Button %d",
   "skyblocker.config.quickNav.button.clickEvent": "Click Event",

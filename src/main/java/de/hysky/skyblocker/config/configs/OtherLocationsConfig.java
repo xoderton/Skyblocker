@@ -16,6 +16,9 @@ public class OtherLocationsConfig {
     @SerialEntry
     public SpidersDen spidersDen = new SpidersDen();
 
+    @SerialEntry
+    public GlowingMushroom glowingMushroom = new GlowingMushroom();
+
     public static class Barn {
         @SerialEntry
         public boolean solveHungryHiker = true;
@@ -67,6 +70,11 @@ public class OtherLocationsConfig {
     public static class SpidersDen {
         @SerialEntry
         public Relics relics = new Relics();
+    }
+
+    public static class GlowingMushroom {
+        @SerialEntry
+        public boolean enableStrangeMushroomHelper = true;
     }
 
     public static class Relics {
