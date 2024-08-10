@@ -12,9 +12,9 @@ import java.util.Arrays;
 public class SkyblockCraftingTableScreenHandler extends GenericContainerScreenHandler {
 
     private static final int[] normalSlots = new int[]{
-            10, 11, 12,     16,
+            10, 11, 12, 16,
             19, 20, 21, 23, 25,
-            28, 29, 30,     34
+            28, 29, 30, 34
     };
 
     private static final int[] riftNormalSlots = new int[]{
@@ -28,7 +28,7 @@ public class SkyblockCraftingTableScreenHandler extends GenericContainerScreenHa
     public SkyblockCraftingTableScreenHandler(ScreenHandlerType<?> type, int syncId, PlayerInventory playerInventory, Inventory inventory, int rows) {
         super(type, syncId, playerInventory, inventory, rows);
         mirrorverse = Utils.getIslandArea().toLowerCase().contains("mirrorverse");
-        int[] activeSlots = mirrorverse ? riftNormalSlots: normalSlots;
+        int[] activeSlots = mirrorverse ? riftNormalSlots : normalSlots;
 
         for (int i = 0; i < rows * 9; i++) {
             Slot originalSlot = slots.get(i);

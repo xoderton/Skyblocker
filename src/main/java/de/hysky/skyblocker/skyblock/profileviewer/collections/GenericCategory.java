@@ -64,7 +64,7 @@ public class GenericCategory implements ProfileViewerPage {
             ItemStack itemStack = ItemRepository.getItemStack(ICON_TRANSLATION.getOrDefault(collection, collection).replace(':', '-'));
             itemStack = itemStack == null ? Ico.BARRIER.copy() : itemStack.copy();
 
-            if (itemStack.getItem().getName().getString().equals("Barrier"))  {
+            if (itemStack.getItem().getName().getString().equals("Barrier")) {
                 itemStack.set(DataComponentTypes.CUSTOM_NAME, Text.of(collection));
                 System.out.println(collection);
                 System.out.println(this.category);
@@ -92,14 +92,15 @@ public class GenericCategory implements ProfileViewerPage {
 
             if (hProfile.get("members").getAsJsonObject().keySet().size() > 1) {
                 lore.add(Text.literal("Personal: " + COMMA_FORMATTER.format(personalColl)).setStyle(style).formatted(Formatting.GOLD));
-                lore.add(Text.literal("Co-op Collection: " + COMMA_FORMATTER.format(totalCollection-personalColl)).setStyle(style).formatted(Formatting.AQUA));
+                lore.add(Text.literal("Co-op Collection: " + COMMA_FORMATTER.format(totalCollection - personalColl)).setStyle(style).formatted(Formatting.AQUA));
             }
             lore.add(Text.literal("Collection: " + COMMA_FORMATTER.format(totalCollection)).setStyle(style).formatted(Formatting.YELLOW));
 
             lore.add(Text.empty());
             lore.add(Text.literal("Collection Tier: " + collectionTier + "/" + tierRequirements.size()).setStyle(style).formatted(Formatting.LIGHT_PURPLE));
 
-            if (collectionTier == tierRequirements.size()) itemStack.set(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true);
+            if (collectionTier == tierRequirements.size())
+                itemStack.set(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true);
 
             itemStack.set(DataComponentTypes.LORE, new LoreComponent(lore));
 

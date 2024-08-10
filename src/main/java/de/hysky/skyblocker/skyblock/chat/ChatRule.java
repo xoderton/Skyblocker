@@ -1,5 +1,7 @@
 package de.hysky.skyblocker.skyblock.chat;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import de.hysky.skyblocker.utils.Utils;
 import net.minecraft.sound.SoundEvent;
 
@@ -8,26 +10,23 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-
 /**
  * Data class to contain all the settings for a chat rule
  */
 public class ChatRule {
     private static final Codec<ChatRule> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            Codec.STRING.fieldOf("name").forGetter(ChatRule::getName),
-            Codec.BOOL.fieldOf("enabled").forGetter(ChatRule::getEnabled),
-            Codec.BOOL.fieldOf("isPartialMatch").forGetter(ChatRule::getPartialMatch),
-            Codec.BOOL.fieldOf("isRegex").forGetter(ChatRule::getRegex),
-            Codec.BOOL.fieldOf("isIgnoreCase").forGetter(ChatRule::getIgnoreCase),
-            Codec.STRING.fieldOf("filter").forGetter(ChatRule::getFilter),
-            Codec.STRING.fieldOf("validLocations").forGetter(ChatRule::getValidLocations),
-            Codec.BOOL.fieldOf("hideMessage").forGetter(ChatRule::getHideMessage),
-            Codec.BOOL.fieldOf("showActionBar").forGetter(ChatRule::getShowActionBar),
-            Codec.BOOL.fieldOf("showAnnouncement").forGetter(ChatRule::getShowAnnouncement),
-            Codec.STRING.optionalFieldOf("replaceMessage").forGetter(ChatRule::getReplaceMessageOpt),
-            SoundEvent.CODEC.optionalFieldOf("customSound").forGetter(ChatRule::getCustomSoundOpt))
+                    Codec.STRING.fieldOf("name").forGetter(ChatRule::getName),
+                    Codec.BOOL.fieldOf("enabled").forGetter(ChatRule::getEnabled),
+                    Codec.BOOL.fieldOf("isPartialMatch").forGetter(ChatRule::getPartialMatch),
+                    Codec.BOOL.fieldOf("isRegex").forGetter(ChatRule::getRegex),
+                    Codec.BOOL.fieldOf("isIgnoreCase").forGetter(ChatRule::getIgnoreCase),
+                    Codec.STRING.fieldOf("filter").forGetter(ChatRule::getFilter),
+                    Codec.STRING.fieldOf("validLocations").forGetter(ChatRule::getValidLocations),
+                    Codec.BOOL.fieldOf("hideMessage").forGetter(ChatRule::getHideMessage),
+                    Codec.BOOL.fieldOf("showActionBar").forGetter(ChatRule::getShowActionBar),
+                    Codec.BOOL.fieldOf("showAnnouncement").forGetter(ChatRule::getShowAnnouncement),
+                    Codec.STRING.optionalFieldOf("replaceMessage").forGetter(ChatRule::getReplaceMessageOpt),
+                    SoundEvent.CODEC.optionalFieldOf("customSound").forGetter(ChatRule::getCustomSoundOpt))
             .apply(instance, ChatRule::new));
     public static final Codec<List<ChatRule>> LIST_CODEC = CODEC.listOf();
 
@@ -47,6 +46,7 @@ public class ChatRule {
     private Boolean showAnnouncement;
     private String replaceMessage;
     private SoundEvent customSound;
+
     /**
      * Creates a chat rule with default options.
      */
@@ -171,7 +171,7 @@ public class ChatRule {
     }
 
     protected SoundEvent getCustomSound() {
-       return customSound;
+        return customSound;
     }
 
     private Optional<SoundEvent> getCustomSoundOpt() {
@@ -192,6 +192,7 @@ public class ChatRule {
 
     /**
      * checks every input option and if the games state and the inputted str matches them returns true.
+     *
      * @param inputString the chat message to check if fits
      * @return if the inputs are all true and the outputs should be performed
      */
@@ -215,7 +216,7 @@ public class ChatRule {
         if (testFilter.isBlank()) return false;
         if (isRegex) {
             if (isPartialMatch) {
-               if (!Pattern.compile(testFilter).matcher(testString).find()) return false;
+                if (!Pattern.compile(testFilter).matcher(testString).find()) return false;
             } else {
                 if (!testString.matches(testFilter)) return false;
             }
@@ -257,7 +258,7 @@ public class ChatRule {
         }
 
         return false;
-    }    
+    }
 }
 
 

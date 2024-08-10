@@ -37,6 +37,7 @@ public class EventNotificationsConfig {
         }
 
         final SoundEvent soundEvent;
+
         Sound(SoundEvent soundEvent) {
             this.soundEvent = soundEvent;
         }

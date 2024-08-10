@@ -15,19 +15,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RancherBootsSpeedAdder extends SimpleSlotTextAdder {
-	private static final Pattern SPEED_PATTERN = Pattern.compile("Current Speed Cap: (\\d+) ?(\\d+)?");
+    private static final Pattern SPEED_PATTERN = Pattern.compile("Current Speed Cap: (\\d+) ?(\\d+)?");
 
-	public RancherBootsSpeedAdder() {
-		super();
-	}
+    public RancherBootsSpeedAdder() {
+        super();
+    }
 
-	@Override
-	public @NotNull List<SlotText> getText(@Nullable Slot slot, @NotNull ItemStack stack, int slotId) {
-		if (!stack.isOf(Items.LEATHER_BOOTS) && !stack.getSkyblockId().equals("RANCHERS_BOOTS")) return List.of();
-		Matcher matcher = ItemUtils.getLoreLineIfMatch(stack, SPEED_PATTERN);
-		if (matcher == null) return List.of();
-		String speed = matcher.group(2);
-		if (speed == null) speed = matcher.group(1); //2nd group only matches when the speed cap is set to a number beyond the player's actual speed cap.
-		return SlotText.bottomLeftList(Text.literal(speed).withColor(0xFFDDC1));
-	}
+    @Override
+    public @NotNull List<SlotText> getText(@Nullable Slot slot, @NotNull ItemStack stack, int slotId) {
+        if (!stack.isOf(Items.LEATHER_BOOTS) && !stack.getSkyblockId().equals("RANCHERS_BOOTS")) return List.of();
+        Matcher matcher = ItemUtils.getLoreLineIfMatch(stack, SPEED_PATTERN);
+        if (matcher == null) return List.of();
+        String speed = matcher.group(2);
+        if (speed == null)
+            speed = matcher.group(1); //2nd group only matches when the speed cap is set to a number beyond the player's actual speed cap.
+        return SlotText.bottomLeftList(Text.literal(speed).withColor(0xFFDDC1));
+    }
 }

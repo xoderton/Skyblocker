@@ -159,7 +159,8 @@ public class Room implements Tickable, Renderable {
                 case 2 -> Shape.ONE_BY_TWO;
                 case 3 -> segmentsX.size() == 2 && segmentsY.size() == 2 ? Shape.L_SHAPE : Shape.ONE_BY_THREE;
                 case 4 -> segmentsX.size() == 2 && segmentsY.size() == 2 ? Shape.TWO_BY_TWO : Shape.ONE_BY_FOUR;
-                default -> throw new IllegalArgumentException("There are no matching room shapes with this set of physical positions: " + Arrays.toString(segments.toArray()));
+                default ->
+                        throw new IllegalArgumentException("There are no matching room shapes with this set of physical positions: " + Arrays.toString(segments.toArray()));
             };
         };
     }
@@ -416,7 +417,8 @@ public class Room implements Tickable, Renderable {
             Scheduler.INSTANCE.schedule(() -> matchState = MatchState.MATCHING, 50);
             reset();
             return true;
-        } else if (matchingRoomsSize == 1) {
+        }
+        else if (matchingRoomsSize == 1) {
             if (matchState == MatchState.MATCHING) {
                 // If one room matches, load the secrets for that room and set state to double-checking.
                 Triple<Direction, Vector2ic, List<String>> directionRoom = possibleRooms.stream().filter(directionRooms -> directionRooms.getRight().size() == 1).findAny().orElseThrow();
@@ -635,6 +637,7 @@ public class Room implements Tickable, Renderable {
 
     /**
      * Marks all secret waypoints with the same index as the given {@link SecretWaypoint} as found or missing and logs the given message.
+     *
      * @param secretWaypoint the secret waypoint to read the index from.
      * @param found          whether to mark the secret as found or missing
      * @param msg            the message to log

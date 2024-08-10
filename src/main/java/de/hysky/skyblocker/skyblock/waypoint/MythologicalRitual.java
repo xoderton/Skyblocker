@@ -194,7 +194,7 @@ public class MythologicalRitual {
     private static boolean isActive() {
         return SkyblockerConfigManager.get().helpers.mythologicalRitual.enableMythologicalRitualHelper && Utils.getLocation() == Location.HUB;
     }
-    
+
     private static void reset() {
         griffinBurrows.clear();
         lastDugBurrowPos = null;

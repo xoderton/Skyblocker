@@ -79,7 +79,8 @@ public class OptionDropdownWidget extends ElementListWidget<OptionDropdownWidget
 
     @Override
     public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
-        if (screen.getSettingsContainer().canInteract(this)) return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
+        if (screen.getSettingsContainer().canInteract(this))
+            return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
         return false;
     }
 
@@ -91,8 +92,8 @@ public class OptionDropdownWidget extends ElementListWidget<OptionDropdownWidget
         context.fill(x - 1, y + 1 + offset, x - 3 + getWidth() - 1, y + 14 + offset, 0xFF000000);
         if (selectedOption != null) {
             context.drawText(MinecraftClient.getInstance().textRenderer, selectedOption.message, x + 2, y + 3 + offset, 0xFFFFFFFF, true);
-        }
-        else context.drawText(MinecraftClient.getInstance().textRenderer, "???", x + 2, y + 3 + offset, 0xFFFFFFFF, true);
+        } else
+            context.drawText(MinecraftClient.getInstance().textRenderer, "???", x + 2, y + 3 + offset, 0xFFFFFFFF, true);
     }
 
     @Override
@@ -119,7 +120,7 @@ public class OptionDropdownWidget extends ElementListWidget<OptionDropdownWidget
             matrices.pop();
         }
     }
-    
+
     @Override
     protected void drawHeaderAndFooterSeparators(DrawContext context) {
     }
@@ -179,7 +180,8 @@ public class OptionDropdownWidget extends ElementListWidget<OptionDropdownWidget
             matrices.translate(-x, -iconY, 0);
             context.drawItem(icon, x, iconY);
             matrices.pop();
-            if (PartyFinderScreen.DEBUG) context.drawText(MinecraftClient.getInstance().textRenderer, String.valueOf(optionSlotId), x + 8, y, 0xFFFF0000, true);
+            if (PartyFinderScreen.DEBUG)
+                context.drawText(MinecraftClient.getInstance().textRenderer, String.valueOf(optionSlotId), x + 8, y, 0xFFFF0000, true);
             context.drawText(MinecraftClient.getInstance().textRenderer, Text.literal(message).fillStyle(Style.EMPTY.withUnderline(hovered)), x + 14, y + 3, 0xFFFFFFFF, false);
         }
 

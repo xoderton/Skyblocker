@@ -50,7 +50,8 @@ public class BackpackPreview {
 
     private static final Storage[] storages = new Storage[STORAGE_SIZE];
 
-    private BackpackPreview() {}
+    private BackpackPreview() {
+    }
 
     /**
      * The profile id of the currently loaded backpack preview.

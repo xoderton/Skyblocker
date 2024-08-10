@@ -1,14 +1,14 @@
 package de.hysky.skyblocker.skyblock.tabhud.widget;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import de.hysky.skyblocker.skyblock.tabhud.widget.component.IcoTextComponent;
 import de.hysky.skyblocker.skyblock.tabhud.util.Ico;
 import de.hysky.skyblocker.skyblock.tabhud.util.PlayerListMgr;
+import de.hysky.skyblocker.skyblock.tabhud.widget.component.IcoTextComponent;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 // this widget shows info about active super cookies
 // or not, if you're unwilling to buy one

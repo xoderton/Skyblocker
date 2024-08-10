@@ -77,8 +77,9 @@ public class WishingCompassSolver {
 
     /**
      * When a filed message is sent in chat, reset the wishing compass solver to start
+     *
      * @param text message
-     * @param b overlay
+     * @param b    overlay
      */
     private static void failMessageListener(Text text, boolean b) {
         if (!Utils.isInCrystalHollows()) {
@@ -146,9 +147,11 @@ public class WishingCompassSolver {
             return MiningLocationLabel.CrystalHollowsLocationsCategory.UNKNOWN;
         }
         return switch (startingZone) {
-            case JUNGLE -> isKeyInInventory() ? MiningLocationLabel.CrystalHollowsLocationsCategory.JUNGLE_TEMPLE : MiningLocationLabel.CrystalHollowsLocationsCategory.ODAWA;
+            case JUNGLE ->
+                    isKeyInInventory() ? MiningLocationLabel.CrystalHollowsLocationsCategory.JUNGLE_TEMPLE : MiningLocationLabel.CrystalHollowsLocationsCategory.ODAWA;
             case MITHRIL_DEPOSITS -> MiningLocationLabel.CrystalHollowsLocationsCategory.MINES_OF_DIVAN;
-            case GOBLIN_HOLDOUT -> isKingsScentPresent() ? MiningLocationLabel.CrystalHollowsLocationsCategory.GOBLIN_QUEENS_DEN : MiningLocationLabel.CrystalHollowsLocationsCategory.KING_YOLKAR;
+            case GOBLIN_HOLDOUT ->
+                    isKingsScentPresent() ? MiningLocationLabel.CrystalHollowsLocationsCategory.GOBLIN_QUEENS_DEN : MiningLocationLabel.CrystalHollowsLocationsCategory.KING_YOLKAR;
             case PRECURSOR_REMNANTS -> MiningLocationLabel.CrystalHollowsLocationsCategory.LOST_PRECURSOR_CITY;
             case MAGMA_FIELDS -> MiningLocationLabel.CrystalHollowsLocationsCategory.KHAZAD_DUM;
             default -> MiningLocationLabel.CrystalHollowsLocationsCategory.UNKNOWN;
@@ -157,8 +160,9 @@ public class WishingCompassSolver {
 
     /**
      * Verifies that a location could be correct and not to far out of zone. This is a problem when areas sometimes do not exist and is not a perfect solution
+     *
      * @param startingZone zone player is searching in
-     * @param pos location where the area should be
+     * @param pos          location where the area should be
      * @return corrected location
      */
     private static Boolean verifyLocation(Zone startingZone, Vec3d pos) {

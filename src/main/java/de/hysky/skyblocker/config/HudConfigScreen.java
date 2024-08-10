@@ -27,7 +27,8 @@ public abstract class HudConfigScreen extends Screen {
 
     /**
      * Creates a new HudConfigScreen with the passed title, parent, and widget
-     * @param title the title of the screen
+     *
+     * @param title  the title of the screen
      * @param parent the parent screen
      * @param widget the widget to configure
      */
@@ -37,8 +38,9 @@ public abstract class HudConfigScreen extends Screen {
 
     /**
      * Creates a new HudConfigScreen with the passed title, parent, and widgets
-     * @param title the title of the screen
-     * @param parent the parent screen
+     *
+     * @param title   the title of the screen
+     * @param parent  the parent screen
      * @param widgets the widgets to configure
      */
     public HudConfigScreen(Text title, Screen parent, List<Widget> widgets) {
@@ -57,6 +59,7 @@ public abstract class HudConfigScreen extends Screen {
 
     /**
      * Renders the widgets using the default {@link Widget#render(DrawContext, boolean)} method. Override to change the behavior.
+     *
      * @param context the context to render in
      * @param widgets the widgets to render
      */
@@ -116,6 +119,7 @@ public abstract class HudConfigScreen extends Screen {
 
     /**
      * Returns the positions of the widgets in the config
+     *
      * @param config the config to get the positions from
      * @return the positions of the widgets
      */
@@ -134,8 +138,9 @@ public abstract class HudConfigScreen extends Screen {
      * Saves the passed positions to the config.
      * <p>
      * NOTE: The parent class will call {@link SkyblockerConfigManager#save()} right after this method
+     *
      * @param configManager the config so you don't have to get it
-     * @param widgets the widgets to save
+     * @param widgets       the widgets to save
      */
     protected abstract void savePos(SkyblockerConfig configManager, List<Widget> widgets);
 }

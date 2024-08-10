@@ -182,10 +182,11 @@ public class OverlayScreen extends Screen {
 
     /**
      * Renders the background for the search using the social interactions background
+     *
      * @param context context
-     * @param mouseX mouseX
-     * @param mouseY mouseY
-     * @param delta delta
+     * @param mouseX  mouseX
+     * @param mouseY  mouseY
+     * @param delta   delta
      */
     @Override
     public void renderBackground(DrawContext context, int mouseX, int mouseY, float delta) {

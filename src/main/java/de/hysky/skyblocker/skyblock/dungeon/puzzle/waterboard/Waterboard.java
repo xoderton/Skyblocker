@@ -338,7 +338,8 @@ public class Waterboard extends DungeonPuzzle {
 
     @Override
     public void render(WorldRenderContext context) {
-        if (!SkyblockerConfigManager.get().dungeons.puzzleSolvers.solveWaterboard || !DungeonManager.isCurrentRoomMatched()) return;
+        if (!SkyblockerConfigManager.get().dungeons.puzzleSolvers.solveWaterboard || !DungeonManager.isCurrentRoomMatched())
+            return;
         Room room = DungeonManager.getCurrentRoom();
 
         // Render the best combination.

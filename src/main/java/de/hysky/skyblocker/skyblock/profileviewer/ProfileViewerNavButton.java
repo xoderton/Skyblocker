@@ -53,7 +53,8 @@ public class ProfileViewerNavButton extends ClickableWidget {
     }
 
     @Override
-    protected void appendClickableNarrations(NarrationMessageBuilder builder) {}
+    protected void appendClickableNarrations(NarrationMessageBuilder builder) {
+    }
 
     public void setToggled(boolean toggled) {
         this.toggled = toggled;

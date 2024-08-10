@@ -16,18 +16,19 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PetLevelAdder extends SimpleSlotTextAdder {
-	private static final Pattern LEVEL_PATTERN = Pattern.compile("⭐? ?\\[Lvl (\\d+)].*");
-	public PetLevelAdder() {
-		super();
-	}
+    private static final Pattern LEVEL_PATTERN = Pattern.compile("⭐? ?\\[Lvl (\\d+)].*");
 
-	@Override
-	public @NotNull List<SlotText> getText(@Nullable Slot slot, @NotNull ItemStack stack, int slotId) {
-		if (!stack.isOf(Items.PLAYER_HEAD) || !ItemUtils.getItemId(stack).equals("PET")) return List.of();
-		Matcher matcher = LEVEL_PATTERN.matcher(stack.getName().getString());
-		if (!matcher.matches()) return List.of();
-		String level = matcher.group(1);
-		if (!NumberUtils.isDigits(level) || "100".equals(level) || "200".equals(level)) return List.of();
-		return SlotText.topLeftList(Text.literal(level).withColor(0xFFDDC1));
-	}
+    public PetLevelAdder() {
+        super();
+    }
+
+    @Override
+    public @NotNull List<SlotText> getText(@Nullable Slot slot, @NotNull ItemStack stack, int slotId) {
+        if (!stack.isOf(Items.PLAYER_HEAD) || !ItemUtils.getItemId(stack).equals("PET")) return List.of();
+        Matcher matcher = LEVEL_PATTERN.matcher(stack.getName().getString());
+        if (!matcher.matches()) return List.of();
+        String level = matcher.group(1);
+        if (!NumberUtils.isDigits(level) || "100".equals(level) || "200".equals(level)) return List.of();
+        return SlotText.topLeftList(Text.literal(level).withColor(0xFFDDC1));
+    }
 }

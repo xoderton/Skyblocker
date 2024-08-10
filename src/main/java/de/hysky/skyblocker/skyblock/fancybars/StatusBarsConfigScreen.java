@@ -1,5 +1,6 @@
 package de.hysky.skyblocker.skyblock.fancybars;
 
+import de.hysky.skyblocker.skyblock.fancybars.BarPositioner.BarLocation;
 import it.unimi.dsi.fastutil.Pair;
 import it.unimi.dsi.fastutil.objects.ObjectBooleanMutablePair;
 import it.unimi.dsi.fastutil.objects.ObjectObjectMutablePair;
@@ -16,7 +17,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
-import de.hysky.skyblocker.skyblock.fancybars.BarPositioner.BarLocation;
 
 import java.util.Collection;
 import java.util.HashMap;

@@ -48,8 +48,8 @@ public class Scheduler {
     /**
      * Schedules a task to run after a delay.
      *
-     * @param task  the task to run
-     * @param delay the delay in ticks
+     * @param task          the task to run
+     * @param delay         the delay in ticks
      * @param multithreaded whether to run the task on the schedulers dedicated thread pool
      */
     public void schedule(Runnable task, int delay, boolean multithreaded) {
@@ -63,8 +63,8 @@ public class Scheduler {
     /**
      * Schedules a task to run every period ticks.
      *
-     * @param task   the task to run
-     * @param period the period in ticks
+     * @param task          the task to run
+     * @param period        the period in ticks
      * @param multithreaded whether to run the task on the schedulers dedicated thread pool
      */
     public void scheduleCyclic(Runnable task, int period, boolean multithreaded) {
@@ -108,9 +108,9 @@ public class Scheduler {
     /**
      * Schedules a screen to open in the next tick. Used in commands to avoid screen immediately closing after the command is executed.
      *
-     * @deprecated Use {@link #queueOpenScreen(Screen)} instead
      * @param screenSupplier the supplier of the screen to open
      * @see #queueOpenScreenCommand(Supplier)
+     * @deprecated Use {@link #queueOpenScreen(Screen)} instead
      */
     @Deprecated(forRemoval = true)
     public static int queueOpenScreen(Supplier<Screen> screenSupplier) {
@@ -172,7 +172,8 @@ public class Scheduler {
     /**
      * A task that that is scheduled to execute once after the {@code interval}, or that is run every {@code interval} ticks.
      */
-    protected record ScheduledTask(Runnable task, int interval, boolean cyclic, boolean multithreaded) implements Runnable {
+    protected record ScheduledTask(Runnable task, int interval, boolean cyclic,
+                                   boolean multithreaded) implements Runnable {
         private ScheduledTask(Runnable task, boolean multithreaded) {
             this(task, -1, false, multithreaded);
         }

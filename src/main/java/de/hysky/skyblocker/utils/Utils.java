@@ -121,6 +121,7 @@ public class Utils {
     public static boolean isInKuudra() {
         return location == Location.KUUDRAS_HOLLOW;
     }
+
     public static boolean isInCrimson() {
         return location == Location.CRIMSON_ISLE;
     }
@@ -433,7 +434,8 @@ public class Utils {
                 LOGGER.error("[Skyblocker] Failed to update your current location! Some features of the mod may not work correctly :( - Error: {}", error);
             }
 
-            default -> {} //Do Nothing
+            default -> {
+            } //Do Nothing
         }
     }
 
@@ -442,7 +444,6 @@ public class Utils {
      * and {@link #location}
      *
      * @param message json message from chat
-     * 
      * @deprecated Retained just in case the mod api doesn't work or gets disabled.
      */
     @Deprecated
@@ -509,7 +510,8 @@ public class Utils {
                 Http.ApiResponse response = Http.sendCacheableGetRequest("https://api.hypixel.net/v2/resources/skyblock/election", null); //Authentication is not required for this endpoint
                 if (!response.ok()) throw new HttpResponseException(response.statusCode(), response.content());
                 JsonObject json = JsonParser.parseString(response.content()).getAsJsonObject();
-                if (!json.get("success").getAsBoolean()) throw new RuntimeException("Request failed!"); //Can't find a more appropriate exception to throw here.
+                if (!json.get("success").getAsBoolean())
+                    throw new RuntimeException("Request failed!"); //Can't find a more appropriate exception to throw here.
                 return json.get("mayor").getAsJsonObject().get("name").getAsString();
             } catch (Exception e) {
                 throw new RuntimeException(e); //Wrap the exception to be handled by the exceptionally block

@@ -4,5 +4,5 @@ import com.mojang.serialization.Codec;
 
 public sealed interface Message<T extends Message<T>> permits CrystalsWaypointMessage {
 
-	Codec<T> getCodec();
+    Codec<T> getCodec();
 }

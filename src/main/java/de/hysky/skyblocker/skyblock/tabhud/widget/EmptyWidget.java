@@ -8,5 +8,6 @@ public class EmptyWidget extends Widget {
     }
 
     @Override
-    public void updateContent() {}
+    public void updateContent() {
+    }
 }

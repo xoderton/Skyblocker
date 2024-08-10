@@ -91,7 +91,8 @@ public class SkyblockInventoryScreen extends InventoryScreen {
     public static void initEquipment() {
 
         SkyblockEvents.PROFILE_CHANGE.register(((prevProfileId, profileId) -> {
-            if (!prevProfileId.isEmpty()) CompletableFuture.runAsync(() -> save(prevProfileId)).thenRun(() -> load(profileId));
+            if (!prevProfileId.isEmpty())
+                CompletableFuture.runAsync(() -> save(prevProfileId)).thenRun(() -> load(profileId));
             else load(profileId);
         }));
 
@@ -105,7 +106,7 @@ public class SkyblockInventoryScreen extends InventoryScreen {
 
     public SkyblockInventoryScreen(PlayerEntity player) {
         super(player);
-        SimpleInventory inventory = new SimpleInventory(Utils.isInTheRift() ? equipment_rift: equipment);
+        SimpleInventory inventory = new SimpleInventory(Utils.isInTheRift() ? equipment_rift : equipment);
 
         Slot slot = handler.slots.get(45);
         ((SlotAccessor) slot).setX(slot.x + 21);
@@ -133,7 +134,8 @@ public class SkyblockInventoryScreen extends InventoryScreen {
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
         for (Slot equipmentSlot : equipmentSlots) {
             drawSlot(context, equipmentSlot);
-            if (isPointWithinBounds(equipmentSlot.x, equipmentSlot.y, 16, 16, mouseX, mouseY)) drawSlotHighlight(context, equipmentSlot.x, equipmentSlot.y, 0);
+            if (isPointWithinBounds(equipmentSlot.x, equipmentSlot.y, 16, 16, mouseX, mouseY))
+                drawSlotHighlight(context, equipmentSlot.x, equipmentSlot.y, 0);
         }
 
         super.drawForeground(context, mouseX, mouseY);

@@ -30,7 +30,8 @@ public class EffigyWaypoints {
     private static final float[] RED = ColorUtils.getFloatComponents(DyeColor.RED);
 
     protected static void updateEffigies() {
-        if (!SkyblockerConfigManager.get().slayers.vampireSlayer.enableEffigyWaypoints || !Utils.isOnSkyblock() || !Utils.isInTheRift() || !Utils.getIslandArea().contains("Stillgore Château")) return;
+        if (!SkyblockerConfigManager.get().slayers.vampireSlayer.enableEffigyWaypoints || !Utils.isOnSkyblock() || !Utils.isInTheRift() || !Utils.getIslandArea().contains("Stillgore Château"))
+            return;
 
         UNBROKEN_EFFIGIES.clear();
 
@@ -47,7 +48,8 @@ public class EffigyWaypoints {
                     effigiesText.addAll(prefixAndSuffix.get(1).getSiblings());
 
                     for (int i2 = 1; i2 < effigiesText.size(); i2++) {
-                        if (effigiesText.get(i2).getStyle().getColor().equals(TextColor.fromFormatting(Formatting.GRAY))) UNBROKEN_EFFIGIES.add(EFFIGIES.get(i2 - 1));
+                        if (effigiesText.get(i2).getStyle().getColor().equals(TextColor.fromFormatting(Formatting.GRAY)))
+                            UNBROKEN_EFFIGIES.add(EFFIGIES.get(i2 - 1));
                     }
                 }
             }

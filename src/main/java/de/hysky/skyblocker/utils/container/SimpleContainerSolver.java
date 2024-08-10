@@ -32,7 +32,7 @@ public abstract class SimpleContainerSolver extends RegexContainerMatcher implem
     // so we don't provide a constructor for that and force getTitlePattern to be @NotNull
     @Override
     public @NotNull Pattern getTitlePattern() {
-	    assert super.getTitlePattern() != null;
-	    return super.getTitlePattern();
+        assert super.getTitlePattern() != null;
+        return super.getTitlePattern();
     }
 }

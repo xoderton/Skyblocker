@@ -50,7 +50,8 @@ public abstract class MinecraftClientMixin {
     public Screen modifySetScreen(Screen screen) {
         return switch (screen) {
             case DownloadingTerrainScreen _s when Utils.isOnHypixel() -> null;
-            case ReconfiguringScreen _s when Utils.isOnHypixel() && this.getNetworkHandler() != null -> new ReconfiguringPlaceholderScreen(this.getNetworkHandler().getConnection());
+            case ReconfiguringScreen _s when Utils.isOnHypixel() && this.getNetworkHandler() != null ->
+                    new ReconfiguringPlaceholderScreen(this.getNetworkHandler().getConnection());
 
             case null, default -> screen;
         };
@@ -63,7 +64,8 @@ public abstract class MinecraftClientMixin {
 
     @WrapOperation(method = "handleInputEvents", at = @At(value = "NEW", target = "(Lnet/minecraft/entity/player/PlayerEntity;)Lnet/minecraft/client/gui/screen/ingame/InventoryScreen;"))
     private InventoryScreen skyblocker$skyblockInventoryScreen(PlayerEntity player, Operation<InventoryScreen> original) {
-        if (Utils.isOnSkyblock() && SkyblockerConfigManager.get().uiAndVisuals.showEquipmentInInventory) return new SkyblockInventoryScreen(player);
+        if (Utils.isOnSkyblock() && SkyblockerConfigManager.get().uiAndVisuals.showEquipmentInInventory)
+            return new SkyblockInventoryScreen(player);
         else return original.call(player);
     }
 }

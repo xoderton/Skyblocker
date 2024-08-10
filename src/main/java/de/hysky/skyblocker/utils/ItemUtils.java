@@ -58,7 +58,8 @@ public final class ItemUtils {
             ComponentChanges.CODEC.optionalFieldOf("components", ComponentChanges.EMPTY).forGetter(ItemStack::getComponentChanges)
     ).apply(instance, ItemStack::new)));
 
-    private ItemUtils() {}
+    private ItemUtils() {
+    }
 
     public static LiteralArgumentBuilder<FabricClientCommandSource> dumpHeldItemCommand() {
         return literal("dumpHeldItem").executes(context -> {
@@ -69,8 +70,9 @@ public final class ItemUtils {
 
     /**
      * Gets the nbt in the custom data component of the item stack.
+     *
      * @return The {@link DataComponentTypes#CUSTOM_DATA custom data} of the itemstack,
-     *         or an empty {@link NbtCompound} if the itemstack is missing a custom data component
+     * or an empty {@link NbtCompound} if the itemstack is missing a custom data component
      */
     @SuppressWarnings("deprecation")
     public static @NotNull NbtCompound getCustomData(@NotNull ComponentHolder stack) {
@@ -121,6 +123,7 @@ public final class ItemUtils {
 
     /**
      * Gets the Skyblock api id of the item stack.
+     *
      * @return the Skyblock api id if of the item stack, or null if the item stack does not have a Skyblock id.
      */
     public static @NotNull String getSkyblockApiId(@NotNull ComponentHolder itemStack) {
@@ -252,10 +255,13 @@ public final class ItemUtils {
                 String rune = runes.getKeys().stream().findFirst().orElse("");
                 yield rune.toUpperCase(Locale.ENGLISH) + "_RUNE;" + runes.getInt(rune);
             }
-            case "POTION" -> "POTION_" + customData.getString("potion").toUpperCase(Locale.ENGLISH) + ";" + customData.getInt("potion_level");
+            case "POTION" ->
+                    "POTION_" + customData.getString("potion").toUpperCase(Locale.ENGLISH) + ";" + customData.getInt("potion_level");
             case "ATTRIBUTE_SHARD" -> "ATTRIBUTE_SHARD";
-            case "PARTY_HAT_CRAB", "BALLOON_HAT_2024" -> id + "_" + customData.getString("party_hat_color").toUpperCase(Locale.ENGLISH);
-            case "PARTY_HAT_CRAB_ANIMATED" -> "PARTY_HAT_CRAB_" + customData.getString("party_hat_color").toUpperCase(Locale.ENGLISH) + "_ANIMATED";
+            case "PARTY_HAT_CRAB", "BALLOON_HAT_2024" ->
+                    id + "_" + customData.getString("party_hat_color").toUpperCase(Locale.ENGLISH);
+            case "PARTY_HAT_CRAB_ANIMATED" ->
+                    "PARTY_HAT_CRAB_" + customData.getString("party_hat_color").toUpperCase(Locale.ENGLISH) + "_ANIMATED";
             case "PARTY_HAT_SLOTH" -> id + "_" + customData.getString("party_hat_emoji").toUpperCase(Locale.ENGLISH);
             default -> id.replace(":", "-");
         };
@@ -281,7 +287,8 @@ public final class ItemUtils {
         JsonObject bazaarPrices = TooltipInfoType.BAZAAR.getData();
         JsonObject lowestBinPrices = TooltipInfoType.LOWEST_BINS.getData();
 
-        if (skyblockApiId == null || skyblockApiId.isEmpty() || bazaarPrices == null || lowestBinPrices == null) return DoubleBooleanPair.of(0, false);
+        if (skyblockApiId == null || skyblockApiId.isEmpty() || bazaarPrices == null || lowestBinPrices == null)
+            return DoubleBooleanPair.of(0, false);
 
         if (bazaarPrices.has(skyblockApiId)) {
             JsonElement sellPrice = bazaarPrices.get(skyblockApiId).getAsJsonObject().get("sellPrice");
@@ -347,6 +354,7 @@ public final class ItemUtils {
 
     /**
      * Gets the first line of the lore that matches the specified predicate.
+     *
      * @return The first line of the lore that matches the predicate, or {@code null} if no line matches.
      */
     @Nullable
@@ -363,6 +371,7 @@ public final class ItemUtils {
 
     /**
      * Gets the first line of the lore that matches the specified pattern, using {@link Matcher#matches()}.
+     *
      * @return A matcher that contains match results if the pattern was found in the lore, otherwise {@code null}.
      */
     @Nullable
@@ -378,8 +387,9 @@ public final class ItemUtils {
 
     /**
      * Gets the first line of the lore that matches the specified pattern, using {@link Matcher#find()}.
+     *
      * @param pattern the pattern to search for
-     * @param stack the stack to search the lore of
+     * @param stack   the stack to search the lore of
      * @return A {@link Matcher matcher} that contains match results if the pattern was found in the lore, otherwise {@code null}.
      */
     @Nullable

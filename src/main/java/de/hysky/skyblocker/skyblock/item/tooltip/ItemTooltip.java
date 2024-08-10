@@ -54,7 +54,7 @@ public class ItemTooltip {
         String priceStringTotal = String.format(Locale.ENGLISH, "%1$,.1f", price * count);
 
         return Text.literal(priceStringTotal + " Coins ").formatted(Formatting.DARK_AQUA)
-                   .append(Text.literal("(" + priceString + " each)").formatted(Formatting.GRAY));
+                .append(Text.literal("(" + priceString + " each)").formatted(Formatting.GRAY));
     }
 
     // If these options is true beforehand, the client will get first data of these options while loading.

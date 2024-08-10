@@ -1,11 +1,5 @@
 package de.hysky.skyblocker.skyblock.mushroom;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import net.minecraft.particle.EntityEffectParticleEffect;
-import net.minecraft.particle.ParticleEffect;
-
 import de.hysky.skyblocker.config.SkyblockerConfigManager;
 import de.hysky.skyblocker.utils.ColorUtils;
 import de.hysky.skyblocker.utils.Utils;
@@ -17,12 +11,20 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
+import net.minecraft.block.MushroomPlantBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.network.packet.s2c.play.ParticleS2CPacket;
+import net.minecraft.particle.EntityEffectParticleEffect;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleType;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GlowingMushrooms {
     private static final MinecraftClient client = MinecraftClient.getInstance();
@@ -45,19 +47,16 @@ public class GlowingMushrooms {
             return;
 
         ParticleEffect particleEffect = packet.getParameters();
-        if (!(particleEffect instanceof EntityEffectParticleEffect))
+        ParticleType<?> particleType = particleEffect.getType();
+        if (!(particleEffect instanceof EntityEffectParticleEffect) && !ParticleTypes.EFFECT.getType().equals(particleType))
             return;
 
         double x = packet.getX();
         double y = packet.getY();
         double z = packet.getZ();
 
-        BlockPos pos = BlockPos.ofFloored(x, y, z);
-        Direction direction = Direction.UP;
-
-        GlowingMushroom glowingMushroom = glowingMushrooms.computeIfAbsent(pos, GlowingMushroom::new);
-
-        IntIntPair particles = glowingMushroom.particles.get(direction);
+        GlowingMushroom glowingMushroom = glowingMushrooms.computeIfAbsent(BlockPos.ofFloored(x, y, z), GlowingMushroom::new);
+        IntIntPair particles = glowingMushroom.particles.get(Direction.UP);
         particles.left(particles.leftInt() + 1);
         particles.right(particles.rightInt() + 1);
     }
@@ -84,7 +83,7 @@ public class GlowingMushrooms {
         String location = Utils.getIslandArea().substring(2);
 
         return SkyblockerConfigManager.get().otherLocations.glowingMushroom.enableStrangeMushroomHelper
-            && location.equals("Glowing Mushroom Cave");
+                && location.equals("Glowing Mushroom Cave");
     }
 
     private static void reset() {
@@ -92,32 +91,27 @@ public class GlowingMushrooms {
     }
 
     public static class GlowingMushroom extends Waypoint {
-        private final Map<Direction, IntIntPair> particles = Map.of(
-                Direction.UP, new IntIntMutablePair(0, 0),
-                Direction.DOWN, new IntIntMutablePair(0, 0),
-                Direction.EAST, new IntIntMutablePair(0, 0),
-                Direction.WEST, new IntIntMutablePair(0, 0),
-                Direction.SOUTH, new IntIntMutablePair(0, 0),
-                Direction.NORTH, new IntIntMutablePair(0, 0)
-        );
+        private final Map<Direction, IntIntPair> particles = Map.of(Direction.UP, new IntIntMutablePair(0, 0));
         private long lastConfirmed;
 
         private GlowingMushroom(BlockPos pos) {
             super(
-                pos,
-                () -> SkyblockerConfigManager.get().uiAndVisuals.waypoints.waypointType,
-                ColorUtils.getFloatComponents(DyeColor.CYAN),
-                false
+                    pos,
+                    () -> SkyblockerConfigManager.get().uiAndVisuals.waypoints.waypointType,
+                    ColorUtils.getFloatComponents(DyeColor.LIME),
+                    false
             );
         }
 
         private void updateParticles() {
             long currentTimeMillis = System.currentTimeMillis();
+
             if (lastConfirmed + 2000 > currentTimeMillis
-            || client.world == null
-            || !particles.entrySet().stream().allMatch(entry ->
-                    entry.getValue().leftInt() >= 5 && entry.getValue().rightInt() >= 5
-                || !client.world.getBlockState(pos).isAir())) return;
+                || client.world == null
+                || client.world.getBlockState(pos).isAir()
+                || !(client.world.getBlockState(pos).getBlock() instanceof MushroomPlantBlock)
+                || !particles.entrySet().stream().allMatch(entry -> entry.getValue().leftInt() >= 5 && entry.getValue().rightInt() >= 5))
+                return;
 
             lastConfirmed = currentTimeMillis;
 
@@ -129,7 +123,7 @@ public class GlowingMushrooms {
 
         @Override
         public boolean shouldRender() {
-            return lastConfirmed + 2500 > System.currentTimeMillis();
+            return super.shouldRender() && lastConfirmed + 5000 > System.currentTimeMillis();
         }
     }
 }

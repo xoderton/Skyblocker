@@ -28,7 +28,7 @@ public class ChatRulesConfigListWidget extends ElementListWidget<ChatRulesConfig
         //add labels
         addEntry(new ChatRuleLabelsEntry());
         //add entry fall all existing rules
-        for (int i = 0; i < ChatRulesHandler.chatRuleList.size(); i++){
+        for (int i = 0; i < ChatRulesHandler.chatRuleList.size(); i++) {
             addEntry(new ChatRuleConfigEntry(i));
         }
     }
@@ -141,6 +141,7 @@ public class ChatRulesConfigListWidget extends ElementListWidget<ChatRulesConfig
                 return Text.translatable("skyblocker.config.chat.chatRules.screen.ruleScreen.false").withColor(Color.RED.getRGB());
             }
         }
+
         private void toggleEnabled() {
             hasChanged = true;
             chatRule.setEnabled(!chatRule.getEnabled());
@@ -168,7 +169,7 @@ public class ChatRulesConfigListWidget extends ElementListWidget<ChatRulesConfig
 
                 @Override
                 public void appendNarrations(NarrationMessageBuilder builder) {
-                    builder.put(NarrationPart.TITLE,chatRule.getName());
+                    builder.put(NarrationPart.TITLE, chatRule.getName());
                 }
             });
         }

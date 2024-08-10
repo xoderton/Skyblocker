@@ -1,7 +1,5 @@
 package de.hysky.skyblocker.skyblock.item;
 
-import java.time.Duration;
-
 import de.hysky.skyblocker.SkyblockerMod;
 import de.hysky.skyblocker.skyblock.itemlist.ItemListWidget;
 import net.minecraft.client.gui.DrawContext;
@@ -12,11 +10,9 @@ import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.TexturedButtonWidget;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.CraftingRecipe;
-import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeMatcher;
 import net.minecraft.recipe.book.RecipeBookCategory;
@@ -25,9 +21,10 @@ import net.minecraft.screen.AbstractRecipeScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
-import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+
+import java.time.Duration;
 
 public class SkyblockCraftingTableScreen extends HandledScreen<SkyblockCraftingTableScreenHandler> {
     private static final Identifier TEXTURE = Identifier.ofVanilla("textures/gui/container/crafting_table.png");
@@ -148,10 +145,12 @@ public class SkyblockCraftingTableScreen extends HandledScreen<SkyblockCraftingT
         }
 
         @Override
-        public void populateRecipeFinder(RecipeMatcher finder) {}
+        public void populateRecipeFinder(RecipeMatcher finder) {
+        }
 
         @Override
-        public void clearCraftingSlots() {}
+        public void clearCraftingSlots() {
+        }
 
         @Override
         public boolean matches(RecipeEntry<CraftingRecipe> recipe) {

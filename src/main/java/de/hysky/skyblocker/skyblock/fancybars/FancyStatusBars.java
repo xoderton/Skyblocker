@@ -27,8 +27,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 public class FancyStatusBars {
@@ -109,8 +109,9 @@ public class FancyStatusBars {
 
     /**
      * Loads the bar position from the old config
-     * @param bar the bar to load the position for
-     * @param counts the counts for each bar position (LAYER1, LAYER2, RIGHT)
+     *
+     * @param bar      the bar to load the position for
+     * @param counts   the counts for each bar position (LAYER1, LAYER2, RIGHT)
      * @param position the position to load
      */
     private static void loadOldBarPosition(StatusBar bar, int[] counts, UIAndVisualsConfig.OldBarPosition position) {
@@ -292,7 +293,8 @@ public class FancyStatusBars {
 
         Collection<StatusBar> barCollection = statusBars.values();
         for (StatusBar statusBar : barCollection) {
-            if (statusBar.anchor != null) statusBar.render(context, -1, -1, client.getRenderTickCounter().getLastFrameDuration());
+            if (statusBar.anchor != null)
+                statusBar.render(context, -1, -1, client.getRenderTickCounter().getLastFrameDuration());
         }
         for (StatusBar statusBar : barCollection) {
             if (statusBar.anchor != null && statusBar.showText()) statusBar.renderText(context);

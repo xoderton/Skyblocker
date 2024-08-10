@@ -5,12 +5,12 @@ import de.hysky.skyblocker.utils.chat.ChatFilterResult;
 
 public class ToggleSkyMallFilter extends SimpleChatFilter {
 
-	public ToggleSkyMallFilter() {
-		super("^You can disable this messaging by toggling Sky Mall in your /hotm!$");
-	}
+    public ToggleSkyMallFilter() {
+        super("^You can disable this messaging by toggling Sky Mall in your /hotm!$");
+    }
 
-	@Override
-	protected ChatFilterResult state() {
-		return SkyblockerConfigManager.get().chat.hideToggleSkyMall;
-	}
+    @Override
+    protected ChatFilterResult state() {
+        return SkyblockerConfigManager.get().chat.hideToggleSkyMall;
+    }
 }

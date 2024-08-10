@@ -1,14 +1,14 @@
 package de.hysky.skyblocker.skyblock.tabhud.widget;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import de.hysky.skyblocker.skyblock.tabhud.util.Ico;
 import de.hysky.skyblocker.skyblock.tabhud.util.PlayerListMgr;
 import de.hysky.skyblocker.skyblock.tabhud.widget.component.IcoTextComponent;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 // this widget shows info about the garden server
 
@@ -20,7 +20,7 @@ public class GardenServerWidget extends Widget {
 
     // match the next visitor in the garden
     // group 1: visitor name
-    private static final Pattern VISITOR_PATTERN = Pattern.compile("Visitors: (?<vis>.*)");		
+    private static final Pattern VISITOR_PATTERN = Pattern.compile("Visitors: (?<vis>.*)");
 
     public GardenServerWidget() {
         super(TITLE, Formatting.DARK_AQUA.getColorValue());
@@ -46,7 +46,7 @@ public class GardenServerWidget extends Widget {
         int offset = hasPesthunterBonus ? 1 : 0;
 
         Matcher m = PlayerListMgr.regexAt(53 + offset, VISITOR_PATTERN);
-        if (m == null ) {
+        if (m == null) {
             this.addComponent(new IcoTextComponent());
             return;
         }

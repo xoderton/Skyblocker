@@ -1,5 +1,6 @@
 package de.hysky.skyblocker.mixins;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import de.hysky.skyblocker.skyblock.dungeon.OldLever;
 import de.hysky.skyblocker.utils.Utils;
 import net.minecraft.block.BlockState;
@@ -10,8 +11,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import com.llamalad7.mixinextras.sugar.Local;
 
 @Mixin(LeverBlock.class)
 public abstract class LeverBlockMixin extends WallMountedBlock {

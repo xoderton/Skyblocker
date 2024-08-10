@@ -23,13 +23,15 @@ public abstract class InventoryScreenMixin {
 
     @WrapOperation(method = "init", at = @At(value = "NEW", target = "(IIIILnet/minecraft/client/gui/screen/ButtonTextures;Lnet/minecraft/client/gui/widget/ButtonWidget$PressAction;)Lnet/minecraft/client/gui/widget/TexturedButtonWidget;"))
     private TexturedButtonWidget skyblocker$moveButton(int x, int y, int width, int height, ButtonTextures textures, ButtonWidget.PressAction pressAction, Operation<TexturedButtonWidget> original) {
-        if (!Utils.isOnSkyblock() || !SkyblockerConfigManager.get().uiAndVisuals.showEquipmentInInventory) return original.call(x, y, width, height, textures, pressAction);
+        if (!Utils.isOnSkyblock() || !SkyblockerConfigManager.get().uiAndVisuals.showEquipmentInInventory)
+            return original.call(x, y, width, height, textures, pressAction);
         return new TexturedButtonWidget(x + 21, y, width, height, textures, pressAction);
     }
 
     @WrapOperation(method = "method_19891", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/widget/ButtonWidget;setPosition(II)V"))
     private void skyblocker$moveButtonWhenPressed(ButtonWidget instance, int i, int j, Operation<Void> original) {
-        if (!Utils.isOnSkyblock() || !SkyblockerConfigManager.get().uiAndVisuals.showEquipmentInInventory) original.call(instance, i, j);
+        if (!Utils.isOnSkyblock() || !SkyblockerConfigManager.get().uiAndVisuals.showEquipmentInInventory)
+            original.call(instance, i, j);
         else instance.setPosition(i + 21, j);
     }
 }

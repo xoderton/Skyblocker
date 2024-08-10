@@ -44,21 +44,22 @@ public class EventToast implements Toast {
         this.started = eventStartTime - System.currentTimeMillis() / 1000 < 0;
 
     }
+
     @Override
     public Visibility draw(DrawContext context, ToastManager manager, long startTime) {
         context.drawGuiTexture(TEXTURE, 0, 0, getWidth(), getHeight());
 
-        int y = (getHeight() - getInnerContentsHeight())/2;
+        int y = (getHeight() - getInnerContentsHeight()) / 2;
         y = 2 + drawMessage(context, 30, y, Colors.WHITE);
         drawTimer(context, 30, y);
 
-        context.drawItemWithoutEntity(icon, 8, getHeight()/2 - 8);
-        return startTime > 5_000 ? Visibility.HIDE: Visibility.SHOW;
+        context.drawItemWithoutEntity(icon, 8, getHeight() / 2 - 8);
+        return startTime > 5_000 ? Visibility.HIDE : Visibility.SHOW;
     }
 
     protected int drawMessage(DrawContext context, int x, int y, int color) {
         TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
-        for (OrderedText orderedText : started ? messageNow: message) {
+        for (OrderedText orderedText : started ? messageNow : message) {
             context.drawText(textRenderer, orderedText, x, y, color, false);
             y += textRenderer.fontHeight;
         }
@@ -79,7 +80,7 @@ public class EventToast implements Toast {
 
     @Override
     public int getWidth() {
-        return (started ? messageNowWidth: messageWidth) + 30 + 6;
+        return (started ? messageNowWidth : messageWidth) + 30 + 6;
     }
 
     protected int getInnerContentsHeight() {

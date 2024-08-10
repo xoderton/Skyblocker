@@ -26,35 +26,35 @@ import java.util.List;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
 
 public class Debug {
-	private static final boolean DEBUG_ENABLED = Boolean.parseBoolean(System.getProperty("skyblocker.debug", "false"));
+    private static final boolean DEBUG_ENABLED = Boolean.parseBoolean(System.getProperty("skyblocker.debug", "false"));
 
-	private static boolean showInvisibleArmorStands = false;
-	private static boolean webSocketDebug = false;
+    private static boolean showInvisibleArmorStands = false;
+    private static boolean webSocketDebug = false;
 
-	public static boolean debugEnabled() {
-		return DEBUG_ENABLED || FabricLoader.getInstance().isDevelopmentEnvironment();
-	}
+    public static boolean debugEnabled() {
+        return DEBUG_ENABLED || FabricLoader.getInstance().isDevelopmentEnvironment();
+    }
 
-	public static boolean shouldShowInvisibleArmorStands() {
-		return showInvisibleArmorStands;
-	}
+    public static boolean shouldShowInvisibleArmorStands() {
+        return showInvisibleArmorStands;
+    }
 
-	public static boolean webSocketDebug() {
-		return webSocketDebug;
-	}
+    public static boolean webSocketDebug() {
+        return webSocketDebug;
+    }
 
-	public static void init() {
-		if (debugEnabled()) {
-			SnapshotDebug.init();
-			ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> dispatcher.register(literal(SkyblockerMod.NAMESPACE).then(literal("debug")
-					.then(dumpPlayersCommand())
-					.then(ItemUtils.dumpHeldItemCommand())
-					.then(toggleShowingInvisibleArmorStands())
-					.then(dumpArmorStandHeadTextures())
-					.then(toggleWebSocketDebug())
-			)));
-			ScreenEvents.BEFORE_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
-				if (screen instanceof HandledScreen<?> handledScreen) {
+    public static void init() {
+        if (debugEnabled()) {
+            SnapshotDebug.init();
+            ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> dispatcher.register(literal(SkyblockerMod.NAMESPACE).then(literal("debug")
+                    .then(dumpPlayersCommand())
+                    .then(ItemUtils.dumpHeldItemCommand())
+                    .then(toggleShowingInvisibleArmorStands())
+                    .then(dumpArmorStandHeadTextures())
+                    .then(toggleWebSocketDebug())
+            )));
+            ScreenEvents.BEFORE_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
+                if (screen instanceof HandledScreen<?> handledScreen) {
                     ScreenKeyboardEvents.afterKeyPress(screen).register((_screen, key, scancode, modifier) -> {
                         Slot focusedSlot = ((HandledScreenAccessor) handledScreen).getFocusedSlot();
                         if (key == GLFW.GLFW_KEY_U && client.player != null && focusedSlot != null && focusedSlot.hasStack()) {
@@ -63,49 +63,49 @@ public class Debug {
                     });
                 }
             });
-		}
-	}
+        }
+    }
 
-	private static LiteralArgumentBuilder<FabricClientCommandSource> dumpPlayersCommand() {
-		return literal("dumpPlayers")
-				.executes(context -> {
-					context.getSource().getWorld().getPlayers().forEach(player -> context.getSource().sendFeedback(Text.of("'" + player.getName().getString() + "'")));
-					return Command.SINGLE_SUCCESS;
-				});
-	}
+    private static LiteralArgumentBuilder<FabricClientCommandSource> dumpPlayersCommand() {
+        return literal("dumpPlayers")
+                .executes(context -> {
+                    context.getSource().getWorld().getPlayers().forEach(player -> context.getSource().sendFeedback(Text.of("'" + player.getName().getString() + "'")));
+                    return Command.SINGLE_SUCCESS;
+                });
+    }
 
-	private static LiteralArgumentBuilder<FabricClientCommandSource> toggleShowingInvisibleArmorStands() {
-		return literal("toggleShowingInvisibleArmorStands")
-				.executes(context -> {
-					showInvisibleArmorStands = !showInvisibleArmorStands;
-					context.getSource().sendFeedback(Constants.PREFIX.get().append(Text.translatable("skyblocker.debug.toggledShowingInvisibleArmorStands", showInvisibleArmorStands)));
-					return Command.SINGLE_SUCCESS;
-				});
-	}
+    private static LiteralArgumentBuilder<FabricClientCommandSource> toggleShowingInvisibleArmorStands() {
+        return literal("toggleShowingInvisibleArmorStands")
+                .executes(context -> {
+                    showInvisibleArmorStands = !showInvisibleArmorStands;
+                    context.getSource().sendFeedback(Constants.PREFIX.get().append(Text.translatable("skyblocker.debug.toggledShowingInvisibleArmorStands", showInvisibleArmorStands)));
+                    return Command.SINGLE_SUCCESS;
+                });
+    }
 
-	private static LiteralArgumentBuilder<FabricClientCommandSource> toggleWebSocketDebug() {
-		return literal("toggleWebSocketDebug")
-				.executes(context -> {
-					webSocketDebug = !webSocketDebug;
-					context.getSource().sendFeedback(Constants.PREFIX.get().append(Text.translatable("skyblocker.debug.toggledWebSocketDebug", webSocketDebug)));
-					return Command.SINGLE_SUCCESS;
-				});
-	}
-	
-	private static LiteralArgumentBuilder<FabricClientCommandSource> dumpArmorStandHeadTextures() {
-		return literal("dumpArmorStandHeadTextures")
-				.executes(context -> {
-					List<ArmorStandEntity> armorStands = context.getSource().getWorld().getEntitiesByClass(ArmorStandEntity.class, context.getSource().getPlayer().getBoundingBox().expand(8d), EntityPredicates.NOT_MOUNTED);
+    private static LiteralArgumentBuilder<FabricClientCommandSource> toggleWebSocketDebug() {
+        return literal("toggleWebSocketDebug")
+                .executes(context -> {
+                    webSocketDebug = !webSocketDebug;
+                    context.getSource().sendFeedback(Constants.PREFIX.get().append(Text.translatable("skyblocker.debug.toggledWebSocketDebug", webSocketDebug)));
+                    return Command.SINGLE_SUCCESS;
+                });
+    }
 
-					for (ArmorStandEntity armorStand : armorStands) {
-						Iterable<ItemStack> equippedItems = armorStand.getEquippedItems();
+    private static LiteralArgumentBuilder<FabricClientCommandSource> dumpArmorStandHeadTextures() {
+        return literal("dumpArmorStandHeadTextures")
+                .executes(context -> {
+                    List<ArmorStandEntity> armorStands = context.getSource().getWorld().getEntitiesByClass(ArmorStandEntity.class, context.getSource().getPlayer().getBoundingBox().expand(8d), EntityPredicates.NOT_MOUNTED);
 
-						for (ItemStack stack : equippedItems) {
-							ItemUtils.getHeadTextureOptional(stack).ifPresent(texture -> context.getSource().sendFeedback(Text.of(texture)));
-						}
-					}
+                    for (ArmorStandEntity armorStand : armorStands) {
+                        Iterable<ItemStack> equippedItems = armorStand.getEquippedItems();
 
-					return Command.SINGLE_SUCCESS;
-				});
-	}
+                        for (ItemStack stack : equippedItems) {
+                            ItemUtils.getHeadTextureOptional(stack).ifPresent(texture -> context.getSource().sendFeedback(Text.of(texture)));
+                        }
+                    }
+
+                    return Command.SINGLE_SUCCESS;
+                });
+    }
 }

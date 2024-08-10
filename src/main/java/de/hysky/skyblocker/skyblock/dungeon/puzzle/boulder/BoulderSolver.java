@@ -1,13 +1,8 @@
 package de.hysky.skyblocker.skyblock.dungeon.puzzle.boulder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Set;
 import it.unimi.dsi.fastutil.Pair;
+
+import java.util.*;
 
 /**
  * A utility class that provides methods to solve the Boulder puzzle using the A* search algorithm.
@@ -21,7 +16,7 @@ public class BoulderSolver {
      *
      * @param initialStates The list of initial game states from which to start the search.
      * @return A list of coordinates representing the shortest path to solve the puzzle,
-     *         or null if no solution is found within the maximum number of iterations.
+     * or null if no solution is found within the maximum number of iterations.
      */
     public static List<int[]> aStarSolve(List<GameState> initialStates) {
         Set<GameState> visited = new HashSet<>();
@@ -74,8 +69,8 @@ public class BoulderSolver {
          * @param a The first pair to compare.
          * @param b The second pair to compare.
          * @return A negative integer if a has a lower cost than b,
-         *         a positive integer if a has a higher cost than b,
-         *         or zero if both have the same cost.
+         * a positive integer if a has a higher cost than b,
+         * or zero if both have the same cost.
          */
         @Override
         public int compare(Pair<GameState, List<int[]>> a, Pair<GameState, List<int[]>> b) {
@@ -97,9 +92,9 @@ public class BoulderSolver {
         /**
          * Constructs a new game state with the specified grid and theoretical player position.
          *
-         * @param grid     The grid representing the Boulder puzzle configuration.
-         * @param playerX  The x-coordinate of the player's position.
-         * @param playerY  The y-coordinate of the player's position.
+         * @param grid    The grid representing the Boulder puzzle configuration.
+         * @param playerX The x-coordinate of the player's position.
+         * @param playerY The y-coordinate of the player's position.
          */
         public GameState(char[][] grid, int playerX, int playerY) {
             this.grid = copyGrid(grid);

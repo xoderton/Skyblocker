@@ -35,7 +35,10 @@ import java.io.BufferedWriter;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 public class TheEnd {
@@ -93,7 +96,8 @@ public class TheEnd {
                         if (isProtectorHere(world, protectorLocation)) break;
                     }
                 }
-                if (currentProfile.isEmpty()) load(); // Wacky fix for when you join skyblock, and you are directly in the end (profile id isn't parsed yet most of the time)
+                if (currentProfile.isEmpty())
+                    load(); // Wacky fix for when you join skyblock, and you are directly in the end (profile id isn't parsed yet most of the time)
             }
 
 
@@ -115,8 +119,7 @@ public class TheEnd {
             if (lowerCase.contains("tremor")) {
                 if (stage == 0) checkAllProtectorLocations();
                 else stage += 1;
-            }
-            else if (lowerCase.contains("rises from below")) stage = 5;
+            } else if (lowerCase.contains("rises from below")) stage = 5;
             else if (lowerCase.contains("protector down") || lowerCase.contains("has risen")) resetLocation();
             else return;
             EndHudWidget.INSTANCE.update();
@@ -137,7 +140,8 @@ public class TheEnd {
 
     /**
      * Checks a bunch of Ys to see if a player head is there, if it's there it returns true and updates the hud accordingly
-     * @param world le world to check
+     *
+     * @param world             le world to check
      * @param protectorLocation protectorLocation to check
      * @return if found
      */
@@ -165,8 +169,7 @@ public class TheEnd {
             if (isSpecialZealot(enderman)) {
                 zealotsSinceLastEye = 0;
                 eyes++;
-            }
-            else zealotsSinceLastEye++;
+            } else zealotsSinceLastEye++;
             zealotsKilled++;
             dirty = true;
             hitZealots.remove(enderman.getUuid());
@@ -175,7 +178,8 @@ public class TheEnd {
     }
 
     public static boolean isZealot(EndermanEntity enderman) {
-        if (enderman.getName().getString().toLowerCase().contains("zealot")) return true; // Future-proof. If they someday decide to actually rename the entities
+        if (enderman.getName().getString().toLowerCase().contains("zealot"))
+            return true; // Future-proof. If they someday decide to actually rename the entities
         assert MinecraftClient.getInstance().world != null;
         List<ArmorStandEntity> entities = MinecraftClient.getInstance().world.getEntitiesByClass(
                 ArmorStandEntity.class,

@@ -16,16 +16,17 @@ public class ProfileViewerTextWidget {
     private double PURSE = 0;
     private double BANK = 0;
 
-    public ProfileViewerTextWidget(JsonObject hypixelProfile, JsonObject playerProfile){
+    public ProfileViewerTextWidget(JsonObject hypixelProfile, JsonObject playerProfile) {
         try {
             this.PROFILE_NAME = hypixelProfile.get("cute_name").getAsString();
             this.SKYBLOCK_LEVEL = playerProfile.getAsJsonObject("leveling").get("experience").getAsInt() / 100;
             this.PURSE = playerProfile.getAsJsonObject("currencies").get("coin_purse").getAsDouble();
             this.BANK = hypixelProfile.getAsJsonObject("banking").get("balance").getAsDouble();
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
 
-    public void render(DrawContext context, TextRenderer textRenderer, int root_x, int root_y){
+    public void render(DrawContext context, TextRenderer textRenderer, int root_x, int root_y) {
         // Profile Icon
         MatrixStack matrices = context.getMatrices();
         matrices.push();
@@ -35,10 +36,10 @@ public class ProfileViewerTextWidget {
         context.drawItem(Ico.PAINTING, rootAdjustedX, rootAdjustedY);
         matrices.pop();
 
-        context.drawText(textRenderer, "§n"+PROFILE_NAME, root_x + 14, root_y + 3, Colors.WHITE, true);
+        context.drawText(textRenderer, "§n" + PROFILE_NAME, root_x + 14, root_y + 3, Colors.WHITE, true);
         context.drawText(textRenderer, "§aLevel:§r " + SKYBLOCK_LEVEL, root_x + 2, root_y + 6 + ROW_GAP, Colors.WHITE, true);
         context.drawText(textRenderer, "§6Purse:§r " + ProfileViewerUtils.numLetterFormat(PURSE), root_x + 2, root_y + 6 + ROW_GAP * 2, Colors.WHITE, true);
         context.drawText(textRenderer, "§6Bank:§r " + ProfileViewerUtils.numLetterFormat(BANK), root_x + 2, root_y + 6 + ROW_GAP * 3, Colors.WHITE, true);
-        context.drawText(textRenderer, "§6NW:§r " + "Soon™", root_x + 2, root_y + 6 + ROW_GAP * 4, Colors.WHITE, true );
+        context.drawText(textRenderer, "§6NW:§r " + "Soon™", root_x + 2, root_y + 6 + ROW_GAP * 4, Colors.WHITE, true);
     }
 }

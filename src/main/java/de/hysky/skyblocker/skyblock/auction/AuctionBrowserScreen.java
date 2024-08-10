@@ -239,8 +239,7 @@ public class AuctionBrowserScreen extends AbstractCustomHypixelGUI<AuctionHouseS
                     parsePage(stack);
                 }
             }
-            case SORT_BUTTON_SLOT ->
-                    sortWidget.setCurrent(SortWidget.Option.get(getOrdinal(ItemUtils.getLore(stack))));
+            case SORT_BUTTON_SLOT -> sortWidget.setCurrent(SortWidget.Option.get(getOrdinal(ItemUtils.getLore(stack))));
             case AUCTION_TYPE_BUTTON_SLOT ->
                     auctionTypeWidget.setCurrent(AuctionTypeWidget.Option.get(getOrdinal(ItemUtils.getLore(stack))));
             case RARITY_BUTTON_SLOT -> {

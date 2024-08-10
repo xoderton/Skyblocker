@@ -108,7 +108,7 @@ public class Boulder extends DungeonPuzzle {
                         break;
                     }
                 }
-                if (button == null){
+                if (button == null) {
                     // If no button is found along the path the puzzle is solved; reset the puzzle
                     reset();
                 }
@@ -140,9 +140,9 @@ public class Boulder extends DungeonPuzzle {
      * Checks for blocks along the line between two points in the world.
      * Returns the position of a block if it found a button on the line, if any.
      *
-     * @param world   The client world.
-     * @param point1  The starting point of the line.
-     * @param point2  The ending point of the line.
+     * @param world  The client world.
+     * @param point1 The starting point of the line.
+     * @param point2 The ending point of the line.
      * @return The position of the block found on the line, or null if no block is found.
      */
     private static BlockPos checkForButtonBlocksOnLine(ClientWorld world, Vec3d point1, Vec3d point2) {

@@ -54,17 +54,18 @@ public class EventNotificationsCategory {
     private static List<OptionGroup> createGroups(SkyblockerConfig config) {
         Map<String, IntList> eventsReminderTimes = config.eventNotifications.eventsReminderTimes;
         List<OptionGroup> groups = new ArrayList<>(eventsReminderTimes.size());
-        if (eventsReminderTimes.isEmpty()) return List.of(OptionGroup.createBuilder().option(LabelOption.create(Text.translatable("skyblocker.config.eventNotifications.monologue"))).build());
+        if (eventsReminderTimes.isEmpty())
+            return List.of(OptionGroup.createBuilder().option(LabelOption.create(Text.translatable("skyblocker.config.eventNotifications.monologue"))).build());
         for (Map.Entry<String, IntList> entry : eventsReminderTimes.entrySet()) {
             groups.add(ListOption.<Integer>createBuilder()
                     .name(Text.literal(entry.getKey()))
                     .binding(EventNotifications.DEFAULT_REMINDERS, entry::getValue, integers -> entry.setValue(new IntImmutableList(integers)))
                     .controller(option -> () -> new DurationController(option)) // yea
-                            .description(OptionDescription.of(Text.translatable("skyblocker.config.eventNotifications.@Tooltip[0]"),
-                                    Text.empty(),
-                                    Text.translatable("skyblocker.config.eventNotifications.@Tooltip[1]"),
-                                    Text.empty(),
-                                    Text.translatable("skyblocker.config.eventNotifications.@Tooltip[2]", entry.getKey())))
+                    .description(OptionDescription.of(Text.translatable("skyblocker.config.eventNotifications.@Tooltip[0]"),
+                            Text.empty(),
+                            Text.translatable("skyblocker.config.eventNotifications.@Tooltip[1]"),
+                            Text.empty(),
+                            Text.translatable("skyblocker.config.eventNotifications.@Tooltip[2]", entry.getKey())))
                     .initial(60)
                     .collapsed(true)
                     .build()

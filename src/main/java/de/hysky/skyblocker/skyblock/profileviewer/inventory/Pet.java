@@ -50,7 +50,6 @@ public class Pet {
     private final Pattern numberMatcher = Pattern.compile("\\{\\d+}");
 
 
-
     private static final Map<String, Integer> TIER_MAP = Map.of(
             "COMMON", 0, "UNCOMMON", 1, "RARE", 2, "EPIC", 3, "LEGENDARY", 4, "MYTHIC", 5
     );
@@ -105,8 +104,14 @@ public class Pet {
         }
         return Optional.empty();
     }
-    public int getLevel() { return level; }
-    public ItemStack getIcon() { return icon; }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public ItemStack getIcon() {
+        return icon;
+    }
 
 
     private ItemStack createIcon() {
@@ -131,7 +136,7 @@ public class Pet {
      * information from NEU-REPO and injecting the player's calculated pet stats into the lore and transforming
      * the NBT Data into modern DataComponentTypes before returning the final ItemStack </p
      *
-     * @param item The NEUItem representing the pet.
+     * @param item     The NEUItem representing the pet.
      * @param heldItem The ItemStack of the pet's held item, if any.
      * @return The ItemStack representing the pet with all its properties set.
      */
@@ -145,7 +150,7 @@ public class Pet {
         Identifier itemId = Identifier.of(ItemFixerUpper.convertItemId(item.getMinecraftItemId(), item.getDamage()));
         ItemStack petStack = new ItemStack(Registries.ITEM.get(itemId)).copy();
 
-        List<Text> formattedLore = !(name.equals("GOLDEN_DRAGON") && level < 101) ?  processLore(item.getLore(), heldItem) : buildGoldenDragonEggLore(item.getLore());
+        List<Text> formattedLore = !(name.equals("GOLDEN_DRAGON") && level < 101) ? processLore(item.getLore(), heldItem) : buildGoldenDragonEggLore(item.getLore());
 
         // Calculate and display XP for level
         Style style = Style.EMPTY.withItalic(false);
@@ -176,7 +181,8 @@ public class Pet {
             }
         }
 
-        if ((boosted())) formattedLore.set(formattedLore.size() - 1, Text.literal(Rarity.values()[getTier() + 1].toString()).setStyle(style).formatted(Formatting.BOLD, RARITY_COLOR_MAP.get(getTier() + 1)));
+        if ((boosted()))
+            formattedLore.set(formattedLore.size() - 1, Text.literal(Rarity.values()[getTier() + 1].toString()).setStyle(style).formatted(Formatting.BOLD, RARITY_COLOR_MAP.get(getTier() + 1)));
 
         // Update the lore and name
         petStack.set(DataComponentTypes.LORE, new LoreComponent(formattedLore));
@@ -188,7 +194,7 @@ public class Pet {
     /**
      * Iterates through a Pet's lore injecting interpolated stat numbers based on pet level
      *
-     * @param lore the raw lore data stored in NEU Repo
+     * @param lore     the raw lore data stored in NEU Repo
      * @param heldItem the pet's held item, if any
      * @return Formatted lore with injected stats inserted into the tooltip
      */
@@ -234,6 +240,7 @@ public class Pet {
 
     /**
      * NEU Repo doesn't distinguish between the Egg and the hatched GoldenDragon pet so hardcoded lore :eues:
+     *
      * @param lore the existing lore
      * @return Fully formatted GoldenDragonEgg Lore
      */

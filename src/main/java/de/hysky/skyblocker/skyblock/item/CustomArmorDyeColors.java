@@ -17,54 +17,54 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.text.Text;
 
 public class CustomArmorDyeColors {
-	public static void init() {
-		ClientCommandRegistrationCallback.EVENT.register(CustomArmorDyeColors::registerCommands);
-	}
+    public static void init() {
+        ClientCommandRegistrationCallback.EVENT.register(CustomArmorDyeColors::registerCommands);
+    }
 
-	private static void registerCommands(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
-		dispatcher.register(ClientCommandManager.literal("skyblocker")
-				.then(ClientCommandManager.literal("custom")
-						.then(ClientCommandManager.literal("dyeColor")
-								.executes(context -> customizeDyeColor(context.getSource(), Integer.MIN_VALUE))
-								.then(ClientCommandManager.argument("hexCode", ColorArgumentType.hex())
-										.executes(context -> customizeDyeColor(context.getSource(), ColorArgumentType.getIntFromHex(context, "hexCode")))))));
-	}
+    private static void registerCommands(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
+        dispatcher.register(ClientCommandManager.literal("skyblocker")
+                .then(ClientCommandManager.literal("custom")
+                        .then(ClientCommandManager.literal("dyeColor")
+                                .executes(context -> customizeDyeColor(context.getSource(), Integer.MIN_VALUE))
+                                .then(ClientCommandManager.argument("hexCode", ColorArgumentType.hex())
+                                        .executes(context -> customizeDyeColor(context.getSource(), ColorArgumentType.getIntFromHex(context, "hexCode")))))));
+    }
 
-	@SuppressWarnings("SameReturnValue")
-	private static int customizeDyeColor(FabricClientCommandSource source, int color) {
-		ItemStack heldItem = source.getPlayer().getMainHandStack();
+    @SuppressWarnings("SameReturnValue")
+    private static int customizeDyeColor(FabricClientCommandSource source, int color) {
+        ItemStack heldItem = source.getPlayer().getMainHandStack();
 
-		if (Utils.isOnSkyblock() && heldItem != null) {
-			if (heldItem.isIn(ItemTags.DYEABLE)) {
-				String itemUuid = ItemUtils.getItemUuid(heldItem);
+        if (Utils.isOnSkyblock() && heldItem != null) {
+            if (heldItem.isIn(ItemTags.DYEABLE)) {
+                String itemUuid = ItemUtils.getItemUuid(heldItem);
 
-				if (!itemUuid.isEmpty()) {
-					Object2IntOpenHashMap<String> customDyeColors = SkyblockerConfigManager.get().general.customDyeColors;
+                if (!itemUuid.isEmpty()) {
+                    Object2IntOpenHashMap<String> customDyeColors = SkyblockerConfigManager.get().general.customDyeColors;
 
-					if (color == Integer.MIN_VALUE) {
-						if (customDyeColors.containsKey(itemUuid)) {
-							customDyeColors.removeInt(itemUuid);
-							SkyblockerConfigManager.save();
-							source.sendFeedback(Constants.PREFIX.get().append(Text.translatable("skyblocker.customDyeColors.removed")));
-						} else {
-							source.sendFeedback(Constants.PREFIX.get().append(Text.translatable("skyblocker.customDyeColors.neverHad")));
-						}
-					} else {
-						customDyeColors.put(itemUuid, color);
-						SkyblockerConfigManager.save();
-						source.sendFeedback(Constants.PREFIX.get().append(Text.translatable("skyblocker.customDyeColors.added")));
-					}
-				} else {
-					source.sendError(Constants.PREFIX.get().append(Text.translatable("skyblocker.customDyeColors.noItemUuid")));
-				}
-			} else {
-				source.sendError(Constants.PREFIX.get().append(Text.translatable("skyblocker.customDyeColors.notDyeable")));
-				return Command.SINGLE_SUCCESS;
-			}
-		} else {
-			source.sendError(Constants.PREFIX.get().append(Text.translatable("skyblocker.customDyeColors.unableToSetColor")));
-		}
+                    if (color == Integer.MIN_VALUE) {
+                        if (customDyeColors.containsKey(itemUuid)) {
+                            customDyeColors.removeInt(itemUuid);
+                            SkyblockerConfigManager.save();
+                            source.sendFeedback(Constants.PREFIX.get().append(Text.translatable("skyblocker.customDyeColors.removed")));
+                        } else {
+                            source.sendFeedback(Constants.PREFIX.get().append(Text.translatable("skyblocker.customDyeColors.neverHad")));
+                        }
+                    } else {
+                        customDyeColors.put(itemUuid, color);
+                        SkyblockerConfigManager.save();
+                        source.sendFeedback(Constants.PREFIX.get().append(Text.translatable("skyblocker.customDyeColors.added")));
+                    }
+                } else {
+                    source.sendError(Constants.PREFIX.get().append(Text.translatable("skyblocker.customDyeColors.noItemUuid")));
+                }
+            } else {
+                source.sendError(Constants.PREFIX.get().append(Text.translatable("skyblocker.customDyeColors.notDyeable")));
+                return Command.SINGLE_SUCCESS;
+            }
+        } else {
+            source.sendError(Constants.PREFIX.get().append(Text.translatable("skyblocker.customDyeColors.unableToSetColor")));
+        }
 
-		return Command.SINGLE_SUCCESS;
-	}
+        return Command.SINGLE_SUCCESS;
+    }
 }

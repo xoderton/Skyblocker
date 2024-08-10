@@ -1,7 +1,6 @@
 package de.hysky.skyblocker.skyblock.experiment;
 
 import com.google.common.collect.ImmutableMap;
-
 import de.hysky.skyblocker.config.configs.HelperConfig;
 import de.hysky.skyblocker.utils.render.gui.ColorHighlight;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;

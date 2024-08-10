@@ -1,14 +1,10 @@
 package de.hysky.skyblocker.skyblock.chat;
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import de.hysky.skyblocker.SkyblockerMod;
-import de.hysky.skyblocker.mixins.accessors.MessageHandlerAccessor;
-import de.hysky.skyblocker.utils.Http;
-import de.hysky.skyblocker.utils.Location;
 import de.hysky.skyblocker.utils.Utils;
 import net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents;
 import net.minecraft.client.MinecraftClient;
@@ -25,8 +21,9 @@ import java.io.BufferedWriter;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
-import java.time.Instant;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class ChatRulesHandler {
@@ -37,7 +34,7 @@ public class ChatRulesHandler {
     /**
      * list of possible locations still formatted for the tool tip
      */
-    protected static final List<String> locationsList = List.of (
+    protected static final List<String> locationsList = List.of(
             "The Farming Islands",
             "Crystal Hollows",
             "Jerry's Workshop",
@@ -104,13 +101,14 @@ public class ChatRulesHandler {
 
     /**
      * Checks each rule in {@link ChatRulesHandler#chatRuleList} to see if they are a match for the message and if so change outputs based on the options set in the {@link ChatRule}.
+     *
      * @param message the chat message
      * @param overlay if its overlay
      */
     private static boolean checkMessage(Text message, boolean overlay) {
         if (!Utils.isOnSkyblock()) return true; //do not work not on skyblock
         if (overlay) return true; //ignore messages in overlay
-        String plain =  Formatting.strip(message.getString());
+        String plain = Formatting.strip(message.getString());
 
         for (ChatRule rule : chatRuleList) {
             if (rule.isMatch(plain)) {
@@ -151,18 +149,19 @@ public class ChatRulesHandler {
 
     /**
      * Converts a string with color codes into a formatted Text object
+     *
      * @param codedString the string with color codes in
      * @return formatted text
      */
     protected static MutableText formatText(String codedString) {
         if (codedString.contains(String.valueOf(Formatting.FORMATTING_CODE_PREFIX)) || codedString.contains("&")) {
-            MutableText newText =  Text.literal("");
-            String[] parts = codedString.split("[" + Formatting.FORMATTING_CODE_PREFIX +"&]");
+            MutableText newText = Text.literal("");
+            String[] parts = codedString.split("[" + Formatting.FORMATTING_CODE_PREFIX + "&]");
             Style style = Style.EMPTY;
 
             for (String part : parts) {
                 if (part.isEmpty()) continue;
-                Formatting formatting =  Formatting.byCode(part.charAt(0));
+                Formatting formatting = Formatting.byCode(part.charAt(0));
 
                 if (formatting != null) {
                     style = style.withFormatting(formatting);

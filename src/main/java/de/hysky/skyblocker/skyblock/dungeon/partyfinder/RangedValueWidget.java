@@ -171,9 +171,15 @@ public class RangedValueWidget extends ContainerWidget {
         SignBlockEntity sign = screen.getSign();
         String inputTrimmed = input.getText().trim();
         if (state == State.MODIFYING_MIN) {
-            try {min = Integer.parseInt(inputTrimmed);} catch (NumberFormatException ignored) {}
+            try {
+                min = Integer.parseInt(inputTrimmed);
+            } catch (NumberFormatException ignored) {
+            }
         } else if (state == State.MODIFYING_MAX) {
-            try {max = Integer.parseInt(inputTrimmed);} catch (NumberFormatException ignored) {}
+            try {
+                max = Integer.parseInt(inputTrimmed);
+            } catch (NumberFormatException ignored) {
+            }
         }
         if (sign != null) {
             Text[] messages = sign.getText(screen.isSignFront()).getMessages(screen.getClient().shouldFilterText());
@@ -265,5 +271,6 @@ public class RangedValueWidget extends ContainerWidget {
     }
 
     @Override
-    protected void appendClickableNarrations(NarrationMessageBuilder builder) {}
+    protected void appendClickableNarrations(NarrationMessageBuilder builder) {
+    }
 }

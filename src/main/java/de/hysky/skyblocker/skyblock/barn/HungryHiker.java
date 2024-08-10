@@ -15,11 +15,13 @@ public class HungryHiker extends ChatPatternListener {
 
     private static final Map<String, String> foods;
 
-    public HungryHiker() { super("^\\[NPC] Hungry Hiker: (The food I want is|(I asked for) food that is) ([a-zA-Z, '\\-]*\\.)$"); }
+    public HungryHiker() {
+        super("^\\[NPC] Hungry Hiker: (The food I want is|(I asked for) food that is) ([a-zA-Z, '\\-]*\\.)$");
+    }
 
     @Override
     public ChatFilterResult state() {
-    return SkyblockerConfigManager.get().otherLocations.barn.solveHungryHiker ? ChatFilterResult.FILTER : ChatFilterResult.PASS;
+        return SkyblockerConfigManager.get().otherLocations.barn.solveHungryHiker ? ChatFilterResult.FILTER : ChatFilterResult.PASS;
     }
 
     @Override

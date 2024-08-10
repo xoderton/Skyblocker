@@ -112,12 +112,12 @@ public class EditBarWidget extends ContainerWidget {
         booleanOption.setOnChange(statusBar::setShowText);
 
         color1.setCurrent(statusBar.getColors()[0].getRGB());
-        color1.setOnChange(color ->  statusBar.getColors()[0] = color);
+        color1.setOnChange(color -> statusBar.getColors()[0] = color);
 
         color2.active = statusBar.hasOverflow();
         if (color2.active) {
             color2.setCurrent(statusBar.getColors()[1].getRGB());
-            color2.setOnChange(color ->  statusBar.getColors()[1] = color);
+            color2.setOnChange(color -> statusBar.getColors()[1] = color);
         }
 
         if (statusBar.getTextColor() != null) {
@@ -246,7 +246,7 @@ public class EditBarWidget extends ContainerWidget {
                 context.fill(getX(), getY(), getRight(), getBottom(), 0x20FFFFFF);
             }
             TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
-            context.drawText(textRenderer, getMessage(), getX() + 1, getY() + 1,  active ? -1 : Colors.GRAY, true);
+            context.drawText(textRenderer, getMessage(), getX() + 1, getY() + 1, active ? -1 : Colors.GRAY, true);
             context.drawBorder(getRight() - 10, getY() + 1, 9, 9, active ? -1 : Colors.GRAY);
             context.fill(getRight() - 8, getY() + 3, getRight() - 3, getY() + 8, active ? current : Colors.GRAY);
         }

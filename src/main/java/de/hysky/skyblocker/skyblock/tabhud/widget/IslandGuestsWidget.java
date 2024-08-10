@@ -1,14 +1,13 @@
 package de.hysky.skyblocker.skyblock.tabhud.widget;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import de.hysky.skyblocker.skyblock.tabhud.util.PlayerListMgr;
 import de.hysky.skyblocker.skyblock.tabhud.widget.component.PlainTextComponent;
-
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 // this widget shows a list of all people visiting the same private island as you
 
@@ -35,7 +34,7 @@ public class IslandGuestsWidget extends Widget {
                 }
                 break;
             }
-            Matcher m = PlayerListMgr.regexAt( i, GUEST_PATTERN);
+            Matcher m = PlayerListMgr.regexAt(i, GUEST_PATTERN);
             if (m == null) {
                 this.addComponent(new PlainTextComponent(Text.of("???")));
             } else {

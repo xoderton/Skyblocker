@@ -42,7 +42,8 @@ public class CraftPriceTooltip extends SimpleTooltipAdder {
         if (neuItem == null) return;
 
         List<NEURecipe> neuRecipes = neuItem.getRecipes();
-        if (neuRecipes.isEmpty() || neuRecipes.getFirst() instanceof io.github.moulberry.repo.data.NEUKatUpgradeRecipe) return;
+        if (neuRecipes.isEmpty() || neuRecipes.getFirst() instanceof io.github.moulberry.repo.data.NEUKatUpgradeRecipe)
+            return;
 
         try {
             double totalCraftCost = getItemCost(neuRecipes.getFirst(), 0);

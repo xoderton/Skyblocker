@@ -1,5 +1,6 @@
 package de.hysky.skyblocker.skyblock.dungeon.partyfinder;
 
+import de.hysky.skyblocker.utils.ItemUtils;
 import net.minecraft.block.entity.SignBlockEntity;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.Element;
@@ -13,8 +14,6 @@ import net.minecraft.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import de.hysky.skyblocker.utils.ItemUtils;
 
 public class FinderSettingsContainer extends ContainerWidget {
     private boolean isInitialized = false;
@@ -47,7 +46,8 @@ public class FinderSettingsContainer extends ContainerWidget {
 
     /**
      * Handles everything in the Settings page
-     * @param screen the parent Party Finder screen
+     *
+     * @param screen        the parent Party Finder screen
      * @param inventoryName le inventory name
      * @return returns false if it doesn't know what's happening
      */
@@ -173,8 +173,14 @@ public class FinderSettingsContainer extends ContainerWidget {
                 //System.out.println("Min and max: " + minAndMax[0] + " " + minAndMax[1]);
                 int leMin = -1;
                 int leMax = -1;
-                try {leMin = Integer.parseInt(minAndMax[0].trim());} catch (NumberFormatException ignored) {}
-                try {leMax = Integer.parseInt(minAndMax[1].trim());} catch (NumberFormatException ignored) {}
+                try {
+                    leMin = Integer.parseInt(minAndMax[0].trim());
+                } catch (NumberFormatException ignored) {
+                }
+                try {
+                    leMax = Integer.parseInt(minAndMax[1].trim());
+                } catch (NumberFormatException ignored) {
+                }
 
                 widget.setMinAndMax(leMin, leMax);
                 return true;
@@ -279,5 +285,6 @@ public class FinderSettingsContainer extends ContainerWidget {
     }
 
     @Override
-    protected void appendClickableNarrations(NarrationMessageBuilder builder) {}
+    protected void appendClickableNarrations(NarrationMessageBuilder builder) {
+    }
 }

@@ -37,7 +37,7 @@ public class SkyblockCraftingDisplayGenerator implements DynamicDisplayGenerator
         List<SkyblockCraftingRecipe> filteredRecipes = ItemRepository.getRecipesStream()
                 .filter(recipe -> {
                     for (ItemStack item : recipe.getGrid()) {
-                        if(!ItemUtils.getItemId(item).isEmpty()) {
+                        if (!ItemUtils.getItemId(item).isEmpty()) {
                             ItemStack itemStack = inputItem.getValue();
                             if (ItemUtils.getItemId(item).equals(ItemUtils.getItemId(itemStack))) return true;
                         }

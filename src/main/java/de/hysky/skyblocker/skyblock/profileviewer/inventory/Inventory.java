@@ -54,7 +54,7 @@ public class Inventory implements ProfileViewerPage {
         context.drawTexture(TEXTURE, rootX, rootYAdjusted + dimensions.leftInt() * 18 + 17, 0, 215, dimensions.rightInt() * 18 + 7, 7);
         context.drawTexture(TEXTURE, rootX + dimensions.rightInt() * 18 + 7, rootYAdjusted + dimensions.leftInt() * 18 + 17, 169, 215, 7, 7);
 
-        context.drawText(textRenderer,  I18n.translate("skyblocker.profileviewer.inventory." + containerName), rootX + 7, rootYAdjusted + 7, Color.DARK_GRAY.getRGB(), false);
+        context.drawText(textRenderer, I18n.translate("skyblocker.profileviewer.inventory." + containerName), rootX + 7, rootYAdjusted + 7, Color.DARK_GRAY.getRGB(), false);
 
         if (containerList.size() > itemsPerPage) {
             previousPage.setX(rootX + 44);
@@ -86,7 +86,7 @@ public class Inventory implements ProfileViewerPage {
             context.drawItem(containerList.get(startIndex + i), x, y);
             context.drawItemInSlot(textRenderer, containerList.get(startIndex + i), x, y);
 
-            if (mouseX > x -1 && mouseX < x + 16 && mouseY > y - 1 && mouseY < y + 16) {
+            if (mouseX > x - 1 && mouseX < x + 16 && mouseY > y - 1 && mouseY < y + 16) {
                 tooltip = containerList.get(startIndex + i).getTooltip(Item.TooltipContext.DEFAULT, CLIENT.player, CLIENT.options.advancedItemTooltips ? TooltipType.ADVANCED : TooltipType.BASIC);
             }
         }

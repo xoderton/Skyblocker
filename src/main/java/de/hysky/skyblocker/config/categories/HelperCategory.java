@@ -212,13 +212,13 @@ public class HelperCategory {
                         .name(Text.translatable("skyblocker.config.helpers.bazaar"))
                         .collapsed(true)
                         .option(Option.<Boolean>createBuilder()
-                                 .name(Text.translatable("skyblocker.config.helpers.bazaar.enableBazaarHelper"))
-                                 .description(OptionDescription.of(Text.translatable("skyblocker.config.helpers.bazaar.enableBazaarHelper.@Tooltip", BazaarHelper.getExpiringIcon(), BazaarHelper.getExpiredIcon(), BazaarHelper.getFilledIcon(69), BazaarHelper.getFilledIcon(100))))
-                                 .binding(defaults.helpers.bazaar.enableBazaarHelper,
-		                                 () -> config.helpers.bazaar.enableBazaarHelper,
-		                                 newValue -> config.helpers.bazaar.enableBazaarHelper = newValue)
-                                 .controller(ConfigUtils::createBooleanController)
-                                 .build())
+                                .name(Text.translatable("skyblocker.config.helpers.bazaar.enableBazaarHelper"))
+                                .description(OptionDescription.of(Text.translatable("skyblocker.config.helpers.bazaar.enableBazaarHelper.@Tooltip", BazaarHelper.getExpiringIcon(), BazaarHelper.getExpiredIcon(), BazaarHelper.getFilledIcon(69), BazaarHelper.getFilledIcon(100))))
+                                .binding(defaults.helpers.bazaar.enableBazaarHelper,
+                                        () -> config.helpers.bazaar.enableBazaarHelper,
+                                        newValue -> config.helpers.bazaar.enableBazaarHelper = newValue)
+                                .controller(ConfigUtils::createBooleanController)
+                                .build())
                         .option(Option.<Boolean>createBuilder()
                                 .name(Text.translatable("skyblocker.config.helpers.bazaar.enableBazaarLookup"))
                                 .description(OptionDescription.of(Text.translatable("skyblocker.config.helpers.bazaar.enableBazaarLookup.@Tooltip")))
@@ -236,7 +236,7 @@ public class HelperCategory {
                                 .controller(ConfigUtils::createBooleanController)
                                 .build())
                         .option(ConfigUtils.createShortcutToKeybindsScreen())
-		                .build())
+                        .build())
                 .build();
     }
 }

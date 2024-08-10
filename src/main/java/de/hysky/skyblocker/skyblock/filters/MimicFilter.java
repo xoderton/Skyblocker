@@ -21,7 +21,8 @@ public class MimicFilter extends ChatPatternListener {
 
     @Override
     protected boolean onMatch(Text message, Matcher matcher) {
-        if (!Utils.isInDungeons() || !DungeonScore.isDungeonStarted() || !DungeonScore.isMimicOnCurrentFloor()) return false;
+        if (!Utils.isInDungeons() || !DungeonScore.isDungeonStarted() || !DungeonScore.isMimicOnCurrentFloor())
+            return false;
         DungeonScore.onMimicKill(); //Only called when the message is cancelled | sent to action bar, complementing DungeonScore#checkMessageForMimic
         return true;
     }

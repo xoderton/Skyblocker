@@ -20,9 +20,9 @@ public class ShortcutsConfigListWidget extends ElementListWidget<ShortcutsConfig
     private final List<Map<String, String>> shortcutMaps = new ArrayList<>();
 
     /**
-     * @param width the width of the widget
-     * @param height the height of the widget
-     * @param y the y coordinate to start rendering/placing the widget from
+     * @param width      the width of the widget
+     * @param height     the height of the widget
+     * @param y          the y coordinate to start rendering/placing the widget from
      * @param itemHeight the height of each item
      */
     public ShortcutsConfigListWidget(MinecraftClient minecraftClient, ShortcutsConfigScreen screen, int width, int height, int y, int itemHeight) {
@@ -103,7 +103,8 @@ public class ShortcutsConfigListWidget extends ElementListWidget<ShortcutsConfig
     }
 
     public static abstract class AbstractShortcutEntry extends ElementListWidget.Entry<AbstractShortcutEntry> {
-        protected void updatePositions() {}
+        protected void updatePositions() {
+        }
     }
 
     protected class ShortcutCategoryEntry extends AbstractShortcutEntry {

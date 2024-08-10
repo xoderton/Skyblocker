@@ -31,7 +31,8 @@ public class ThreeWeirdos extends DungeonPuzzle {
         super("three-weirdos", "three-chests");
         ClientReceiveMessageEvents.GAME.register((message, overlay) -> {
             ClientWorld world = MinecraftClient.getInstance().world;
-            if (overlay || !shouldSolve() || !SkyblockerConfigManager.get().dungeons.puzzleSolvers.solveThreeWeirdos || world == null || !DungeonManager.isCurrentRoomMatched()) return;
+            if (overlay || !shouldSolve() || !SkyblockerConfigManager.get().dungeons.puzzleSolvers.solveThreeWeirdos || world == null || !DungeonManager.isCurrentRoomMatched())
+                return;
 
             @SuppressWarnings("DataFlowIssue")
             Matcher matcher = PATTERN.matcher(Formatting.strip(message.getString()));
@@ -70,7 +71,8 @@ public class ThreeWeirdos extends DungeonPuzzle {
     }
 
     @Override
-    public void tick(MinecraftClient client) {}
+    public void tick(MinecraftClient client) {
+    }
 
     @Override
     public void render(WorldRenderContext context) {

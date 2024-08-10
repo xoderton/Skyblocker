@@ -15,7 +15,7 @@ import java.util.List;
 
 public class BeaconHighlighter {
     public static final List<BlockPos> beaconPositions = new ArrayList<>();
-    private static final float[] RED_COLOR_COMPONENTS = { 1.0f, 0.0f, 0.0f };
+    private static final float[] RED_COLOR_COMPONENTS = {1.0f, 0.0f, 0.0f};
 
     /**
      * Initializes the beacon highlighting system.

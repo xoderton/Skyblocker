@@ -317,7 +317,8 @@ public class StatusBar implements Widget, Drawable, Element, Selectable {
             this.colors = newColors;
         }
 
-        if (object.has("text_color")) this.textColor = new Color(Integer.parseInt(object.get("text_color").getAsString(), 16));
+        if (object.has("text_color"))
+            this.textColor = new Color(Integer.parseInt(object.get("text_color").getAsString(), 16));
 
         String maybeAnchor = object.get("anchor").getAsString().trim();
         this.anchor = maybeAnchor.equals("null") ? null : BarPositioner.BarAnchor.valueOf(maybeAnchor);
@@ -325,7 +326,8 @@ public class StatusBar implements Widget, Drawable, Element, Selectable {
         this.gridX = object.get("x").getAsInt();
         this.gridY = object.get("y").getAsInt();
         // these are optional too, why not
-        if (object.has("icon_position")) this.iconPosition = IconPosition.valueOf(object.get("icon_position").getAsString().trim());
+        if (object.has("icon_position"))
+            this.iconPosition = IconPosition.valueOf(object.get("icon_position").getAsString().trim());
         if (object.has("show_text")) this.showText = object.get("show_text").getAsBoolean();
 
     }

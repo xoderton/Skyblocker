@@ -2,12 +2,11 @@ package de.hysky.skyblocker.config.categories;
 
 import de.hysky.skyblocker.config.ConfigUtils;
 import de.hysky.skyblocker.config.SkyblockerConfig;
+import de.hysky.skyblocker.config.configs.UIAndVisualsConfig;
 import de.hysky.skyblocker.skyblock.fancybars.StatusBarsConfigScreen;
 import de.hysky.skyblocker.skyblock.waypoint.WaypointsScreen;
 import de.hysky.skyblocker.utils.render.title.TitleContainerConfigScreen;
-import de.hysky.skyblocker.config.configs.UIAndVisualsConfig;
 import de.hysky.skyblocker.utils.waypoint.Waypoint;
-import dev.isxander.yacl3.api.ConfigCategory;
 import dev.isxander.yacl3.api.*;
 import dev.isxander.yacl3.api.controller.ColorControllerBuilder;
 import dev.isxander.yacl3.api.controller.FloatFieldControllerBuilder;
@@ -411,7 +410,7 @@ public class UIAndVisualsCategory {
                                 .binding(defaults.uiAndVisuals.compactDamage.precision,
                                         () -> config.uiAndVisuals.compactDamage.precision,
                                         newValue -> config.uiAndVisuals.compactDamage.precision = newValue)
-                                .controller(opt -> IntegerSliderControllerBuilder.create(opt).range(1,3).step(1))
+                                .controller(opt -> IntegerSliderControllerBuilder.create(opt).range(1, 3).step(1))
                                 .build())
                         .option(Option.<Color>createBuilder()
                                 .name(Text.translatable("skyblocker.config.uiAndVisuals.compactDamage.normalDamageColor"))

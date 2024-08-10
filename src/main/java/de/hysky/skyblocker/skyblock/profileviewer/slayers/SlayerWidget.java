@@ -55,7 +55,8 @@ public class SlayerWidget {
         this.drop = DROP_ICON.getOrDefault(slayer, Ico.BARRIER);
         try {
             this.slayerData = playerProfile.getAsJsonObject("slayer").getAsJsonObject("slayer_bosses").getAsJsonObject(this.slayerName.toLowerCase());
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, int x, int y) {
@@ -73,7 +74,7 @@ public class SlayerWidget {
         Color fillColor = slayerLevel.fill == 1 ? Color.MAGENTA : Color.green;
         RenderHelper.renderNineSliceColored(context, BAR_FILL, x + 30, y + 15, (int) (75 * slayerLevel.fill), 6, fillColor);
 
-        if (mouseX > x + 30 && mouseX < x + 105 && mouseY > y + 12 && mouseY < y + 22){
+        if (mouseX > x + 30 && mouseX < x + 105 && mouseY > y + 12 && mouseY < y + 22) {
             List<Text> tooltipText = new ArrayList<>();
             tooltipText.add(Text.literal(this.slayerName).formatted(Formatting.GREEN));
             tooltipText.add(Text.literal("XP: " + ProfileViewerUtils.COMMA_FORMATTER.format(this.slayerLevel.xp)).formatted(Formatting.GOLD));
@@ -97,9 +98,11 @@ public class SlayerWidget {
         try {
             for (int tier = 4; tier >= 0; tier--) {
                 String key = "boss_kills_tier_" + tier;
-                if (this.slayerData.has(key)) return "§cT" + (tier + 1) + " Kills: §r" + this.slayerData.get(key).getAsInt();
+                if (this.slayerData.has(key))
+                    return "§cT" + (tier + 1) + " Kills: §r" + this.slayerData.get(key).getAsInt();
             }
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
         return "No Data";
     }
 }

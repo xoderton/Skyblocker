@@ -15,18 +15,18 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class PrehistoricEggAdder extends SimpleSlotTextAdder {
-	@Override
-	public @NotNull List<SlotText> getText(@Nullable Slot slot, @NotNull ItemStack stack, int slotId) {
-		if (!stack.isOf(Items.PLAYER_HEAD) || !stack.getSkyblockId().equals("PREHISTORIC_EGG")) return List.of();
-		NbtCompound nbt = ItemUtils.getCustomData(stack);
-		if (!nbt.contains("blocks_walked", NbtElement.INT_TYPE)) return List.of();
-		int walked = nbt.getInt("blocks_walked");
+    @Override
+    public @NotNull List<SlotText> getText(@Nullable Slot slot, @NotNull ItemStack stack, int slotId) {
+        if (!stack.isOf(Items.PLAYER_HEAD) || !stack.getSkyblockId().equals("PREHISTORIC_EGG")) return List.of();
+        NbtCompound nbt = ItemUtils.getCustomData(stack);
+        if (!nbt.contains("blocks_walked", NbtElement.INT_TYPE)) return List.of();
+        int walked = nbt.getInt("blocks_walked");
 
-		String walkedStr;
-		if (walked < 1000) walkedStr = String.valueOf(walked);
-		else if (walked < 10000) walkedStr = String.format("%.1fk", walked/1000.0f);
-		else walkedStr = walked / 1000 + "k";
+        String walkedStr;
+        if (walked < 1000) walkedStr = String.valueOf(walked);
+        else if (walked < 10000) walkedStr = String.format("%.1fk", walked / 1000.0f);
+        else walkedStr = walked / 1000 + "k";
 
-		return SlotText.bottomLeftList(Text.literal(walkedStr).withColor(0xFFDDC1));
-	}
+        return SlotText.bottomLeftList(Text.literal(walkedStr).withColor(0xFFDDC1));
+    }
 }

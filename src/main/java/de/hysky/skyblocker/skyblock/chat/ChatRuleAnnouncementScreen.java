@@ -24,7 +24,8 @@ public class ChatRuleAnnouncementScreen {
 
     /**
      * renders {@link ChatRuleAnnouncementScreen#text} to the middle of the top of the screen.
-     * @param context render context
+     *
+     * @param context   render context
      * @param tickDelta difference from last render to remove from timer
      */
     private static void render(DrawContext context, RenderTickCounter tickCounter) {
@@ -44,6 +45,6 @@ public class ChatRuleAnnouncementScreen {
 
     protected static void setText(Text newText) {
         text = newText;
-        timer =  SkyblockerConfigManager.get().chat.chatRuleConfig.announcementLength;
+        timer = SkyblockerConfigManager.get().chat.chatRuleConfig.announcementLength;
     }
 }

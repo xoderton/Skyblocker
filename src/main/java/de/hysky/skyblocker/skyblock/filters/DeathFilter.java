@@ -9,17 +9,17 @@ import java.util.regex.Matcher;
 
 public class DeathFilter extends ChatPatternListener {
 
-	public DeathFilter() {
-		super(" \\u2620 .*");
-	}
+    public DeathFilter() {
+        super(" \\u2620 .*");
+    }
 
-	@Override
-	protected ChatFilterResult state() {
-		return SkyblockerConfigManager.get().chat.hideDeath;
-	}
+    @Override
+    protected ChatFilterResult state() {
+        return SkyblockerConfigManager.get().chat.hideDeath;
+    }
 
-	@Override
-	protected boolean onMatch(Text message, Matcher matcher) {
-		return true;
-	}
+    @Override
+    protected boolean onMatch(Text message, Matcher matcher) {
+        return true;
+    }
 }

@@ -1,5 +1,6 @@
 package de.hysky.skyblocker.skyblock.dungeon.puzzle;
 
+import com.mojang.logging.LogUtils;
 import de.hysky.skyblocker.config.SkyblockerConfigManager;
 import de.hysky.skyblocker.skyblock.waypoint.FairySouls;
 import de.hysky.skyblocker.utils.Utils;
@@ -12,8 +13,6 @@ import net.minecraft.util.Formatting;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
-
-import com.mojang.logging.LogUtils;
 
 import java.util.*;
 import java.util.regex.Matcher;

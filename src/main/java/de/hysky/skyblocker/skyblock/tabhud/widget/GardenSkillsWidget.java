@@ -1,17 +1,16 @@
 package de.hysky.skyblocker.skyblock.tabhud.widget;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import de.hysky.skyblocker.skyblock.tabhud.util.Ico;
 import de.hysky.skyblocker.skyblock.tabhud.util.PlayerListMgr;
 import de.hysky.skyblocker.skyblock.tabhud.widget.component.IcoTextComponent;
 import de.hysky.skyblocker.skyblock.tabhud.widget.component.ProgressComponent;
 import de.hysky.skyblocker.skyblock.tabhud.widget.component.TableComponent;
-
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 // this widget shows info about your skills while in the garden
 
@@ -41,7 +40,7 @@ public class GardenSkillsWidget extends Widget {
         ProgressComponent spc;
         Matcher skillMatcher = PlayerListMgr.regexAt(66, SKILL_PATTERN);
         if (skillMatcher == null) {
-        	spc = new ProgressComponent();
+            spc = new ProgressComponent();
         } else {
 
             String strpcnt = skillMatcher.group("progress");
@@ -70,8 +69,8 @@ public class GardenSkillsWidget extends Widget {
             if (level.equals("15") || level.equals("XV")) {
                 glpc = new ProgressComponent(Ico.SEEDS, Text.literal("Garden Level " + level), 100f, Formatting.RED.getColorValue());
             } else {
-            	String strpcnt = glMatcher.group("progress");
-            	float pcnt = Float.parseFloat(strpcnt);
+                String strpcnt = glMatcher.group("progress");
+                float pcnt = Float.parseFloat(strpcnt);
 
                 glpc = new ProgressComponent(Ico.SEEDS, Text.literal("Garden Level " + level), pcnt, Formatting.DARK_GREEN.getColorValue());
             }
@@ -88,7 +87,7 @@ public class GardenSkillsWidget extends Widget {
         tc.addToCell(0, 0, spd);
         tc.addToCell(1, 0, ffo);
         this.addComponent(tc);
-        
+
         this.addComponent(new IcoTextComponent(Ico.IRON_HOE, PlayerListMgr.textAt(70)));
 
         ProgressComponent pc2;

@@ -1,14 +1,13 @@
 package de.hysky.skyblocker.skyblock.tabhud.widget;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import de.hysky.skyblocker.skyblock.tabhud.util.PlayerListMgr;
 import de.hysky.skyblocker.skyblock.tabhud.widget.component.PlainTextComponent;
-
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 // this widget shows a list of the owners of a home island while guesting
 
@@ -43,7 +42,7 @@ public class IslandOwnersWidget extends Widget {
                 name = m.group("nameA");
                 lastseen = m.group("lastseen");
                 format = Formatting.GRAY;
-            } else if (m.group("nameB")!=null){
+            } else if (m.group("nameB") != null) {
                 name = m.group("nameB");
                 lastseen = "Online";
                 format = Formatting.WHITE;

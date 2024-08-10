@@ -63,7 +63,7 @@ public class DungeonClassWidget {
         context.drawGuiTexture(BAR_BACK, x + 30, y + 15, 75, 6);
         RenderHelper.renderNineSliceColored(context, BAR_FILL, x + 30, y + 15, (int) (75 * classLevel.fill), 6, fillColor);
 
-        if (mouseX > x + 30 && mouseX < x + 105 && mouseY > y + 12 && mouseY < y + 22){
+        if (mouseX > x + 30 && mouseX < x + 105 && mouseY > y + 12 && mouseY < y + 22) {
             List<Text> tooltipText = new ArrayList<>();
             tooltipText.add(Text.literal(this.className).formatted(Formatting.GREEN));
             tooltipText.add(Text.literal("XP: " + ProfileViewerUtils.COMMA_FORMATTER.format(this.classLevel.xp)).formatted(Formatting.GOLD));

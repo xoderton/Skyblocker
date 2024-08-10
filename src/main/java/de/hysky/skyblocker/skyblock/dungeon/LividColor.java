@@ -63,11 +63,13 @@ public class LividColor {
 
     private static void update(WorldRenderContext context) {
         DungeonsConfig.Livid config = SkyblockerConfigManager.get().dungeons.livid;
-        if (!(config.enableLividColorText || config.enableLividColorTitle || config.enableLividColorGlow || config.enableLividColorBoundingBox)) return;
+        if (!(config.enableLividColorText || config.enableLividColorTitle || config.enableLividColorGlow || config.enableLividColorBoundingBox))
+            return;
 
         MinecraftClient client = MinecraftClient.getInstance();
 
-        if (!(Utils.isInDungeons() && DungeonManager.isInBoss() && client.player != null && client.world != null)) return;
+        if (!(Utils.isInDungeons() && DungeonManager.isInBoss() && client.player != null && client.world != null))
+            return;
 
         Block currentColor = client.world.getBlockState(new BlockPos(5, 110, 42)).getBlock();
         if (!(WOOL_TO_FORMATTING.containsKey(currentColor) && !currentColor.equals(lastColor))) return;

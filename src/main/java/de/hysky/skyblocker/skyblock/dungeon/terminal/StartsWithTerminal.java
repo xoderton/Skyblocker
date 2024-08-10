@@ -15,114 +15,114 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public final class StartsWithTerminal extends SimpleContainerSolver implements TerminalSolver {
-	private final Int2ObjectOpenHashMap<ItemState> trackedItemStates = new Int2ObjectOpenHashMap<>();
-	private int lastKnownScreenId = Integer.MIN_VALUE;
+    private final Int2ObjectOpenHashMap<ItemState> trackedItemStates = new Int2ObjectOpenHashMap<>();
+    private int lastKnownScreenId = Integer.MIN_VALUE;
 
-	public StartsWithTerminal() {
-		super("^What starts with: '([A-Z])'\\?$");
-	}
+    public StartsWithTerminal() {
+        super("^What starts with: '([A-Z])'\\?$");
+    }
 
-	@Override
-	public boolean isEnabled() {
-		return SkyblockerConfigManager.get().dungeons.terminals.solveStartsWith;
-	}
+    @Override
+    public boolean isEnabled() {
+        return SkyblockerConfigManager.get().dungeons.terminals.solveStartsWith;
+    }
 
-	@Override
-	public List<ColorHighlight> getColors(Int2ObjectMap<ItemStack> slots) {
-		ContainerSolver.trimEdges(slots, 6);
-		setupState(slots);
+    @Override
+    public List<ColorHighlight> getColors(Int2ObjectMap<ItemStack> slots) {
+        ContainerSolver.trimEdges(slots, 6);
+        setupState(slots);
 
-		String prefix = groups[0];
-		List<ColorHighlight> highlights = new ArrayList<>();
+        String prefix = groups[0];
+        List<ColorHighlight> highlights = new ArrayList<>();
 
-		for (Int2ObjectMap.Entry<ItemStack> slot : slots.int2ObjectEntrySet()) {
-			ItemStack stack = slot.getValue();
-			ItemState state = trackedItemStates.getOrDefault(slot.getIntKey(), ItemState.DEFAULT);
+        for (Int2ObjectMap.Entry<ItemStack> slot : slots.int2ObjectEntrySet()) {
+            ItemStack stack = slot.getValue();
+            ItemState state = trackedItemStates.getOrDefault(slot.getIntKey(), ItemState.DEFAULT);
 
-			//If the item hasn't been marked as clicked and it matches the starts with condition
-			//We keep track of the clicks ourselves instead of using the enchantment glint because some items like nether stars have the glint override component by default
-			//so even if Hypixel tries to change that to the same thing it was before (true) it won't work and the solver would permanently consider the item to be clicked
-			//even if it hasn't been yet
-			if (!state.clicked() && stack.getName().getString().startsWith(prefix)) {
-				highlights.add(ColorHighlight.green(slot.getIntKey()));
-			}
-		}
-		return highlights;
-	}
+            //If the item hasn't been marked as clicked and it matches the starts with condition
+            //We keep track of the clicks ourselves instead of using the enchantment glint because some items like nether stars have the glint override component by default
+            //so even if Hypixel tries to change that to the same thing it was before (true) it won't work and the solver would permanently consider the item to be clicked
+            //even if it hasn't been yet
+            if (!state.clicked() && stack.getName().getString().startsWith(prefix)) {
+                highlights.add(ColorHighlight.green(slot.getIntKey()));
+            }
+        }
+        return highlights;
+    }
 
-	@Override
-	public boolean onClickSlot(int slot, ItemStack stack, int screenId) {
-		//Some random glass pane was clicked or something
-		if (!trackedItemStates.containsKey(slot) || stack == null || stack.isEmpty()) return false;
+    @Override
+    public boolean onClickSlot(int slot, ItemStack stack, int screenId) {
+        //Some random glass pane was clicked or something
+        if (!trackedItemStates.containsKey(slot) || stack == null || stack.isEmpty()) return false;
 
-		ItemState state = trackedItemStates.get(slot);
-		String prefix = groups[0];
+        ItemState state = trackedItemStates.get(slot);
+        String prefix = groups[0];
 
-		//If the item stack's name starts with the correct letter
-		//Also, since Hypixel closes & reopens the GUI after every click we check if the last known screen id is the same that way in case the server lags and
-		//either a player tries to click a second item or if the player puts the clicked item back and tries to click another that we don't mark multiple items
-		//as clicked when only the first one will count.
+        //If the item stack's name starts with the correct letter
+        //Also, since Hypixel closes & reopens the GUI after every click we check if the last known screen id is the same that way in case the server lags and
+        //either a player tries to click a second item or if the player puts the clicked item back and tries to click another that we don't mark multiple items
+        //as clicked when only the first one will count.
 
-		//While Hypixel does use a different syncId each time they open the screen we opt to use our own so as to avoid them potentially changing that
-		//and in turn breaking this logic
-		if (stack.getName().getString().startsWith(prefix) && !state.clicked() && lastKnownScreenId != screenId) {
-			trackedItemStates.put(slot, state.click());
-			lastKnownScreenId = screenId;
-		} else {
-			return shouldBlockIncorrectClicks();
-		}
+        //While Hypixel does use a different syncId each time they open the screen we opt to use our own so as to avoid them potentially changing that
+        //and in turn breaking this logic
+        if (stack.getName().getString().startsWith(prefix) && !state.clicked() && lastKnownScreenId != screenId) {
+            trackedItemStates.put(slot, state.click());
+            lastKnownScreenId = screenId;
+        } else {
+            return shouldBlockIncorrectClicks();
+        }
 
-		return false;
-	}
+        return false;
+    }
 
-	//We only set up the state when all items aren't null or empty. This prevents the state from being reset due to unsent items or server lag spikes/bad TPS (fix ur servers Hypixel)
-	private void setupState(Int2ObjectMap<ItemStack> usefulSlots) {
-		Predicate<Int2ObjectMap.Entry<ItemStack>> notNullOrEmpty = e -> e.getValue() != null && !e.getValue().isEmpty();
+    //We only set up the state when all items aren't null or empty. This prevents the state from being reset due to unsent items or server lag spikes/bad TPS (fix ur servers Hypixel)
+    private void setupState(Int2ObjectMap<ItemStack> usefulSlots) {
+        Predicate<Int2ObjectMap.Entry<ItemStack>> notNullOrEmpty = e -> e.getValue() != null && !e.getValue().isEmpty();
 
-		if (allEntriesMatch(usefulSlots.int2ObjectEntrySet(), notNullOrEmpty)) {
-			//If the state hasn't been setup then we will do that
-			if (trackedItemStates.isEmpty()) {
-				for (Int2ObjectMap.Entry<ItemStack> entry : usefulSlots.int2ObjectEntrySet()) {
-					trackedItemStates.put(entry.getIntKey(), ItemState.of(entry.getValue().getItem()));
-				}
-			} else { //If the state is setup then we verify that it hasn't changed since last time, and if it has then we will clear it and call this method again to set it up
-				//Checks whether the trackedItemStates contains the slot id and if it does it checks whether the tracked state's item is a 1:1 match
-				Predicate<Int2ObjectMap.Entry<ItemStack>> doesItemMatch = e -> trackedItemStates.containsKey(e.getIntKey()) && trackedItemStates.get(e.getIntKey()).itemMatches(e.getValue().getItem());
+        if (allEntriesMatch(usefulSlots.int2ObjectEntrySet(), notNullOrEmpty)) {
+            //If the state hasn't been setup then we will do that
+            if (trackedItemStates.isEmpty()) {
+                for (Int2ObjectMap.Entry<ItemStack> entry : usefulSlots.int2ObjectEntrySet()) {
+                    trackedItemStates.put(entry.getIntKey(), ItemState.of(entry.getValue().getItem()));
+                }
+            } else { //If the state is setup then we verify that it hasn't changed since last time, and if it has then we will clear it and call this method again to set it up
+                //Checks whether the trackedItemStates contains the slot id and if it does it checks whether the tracked state's item is a 1:1 match
+                Predicate<Int2ObjectMap.Entry<ItemStack>> doesItemMatch = e -> trackedItemStates.containsKey(e.getIntKey()) && trackedItemStates.get(e.getIntKey()).itemMatches(e.getValue().getItem());
 
-				if (!allEntriesMatch(usefulSlots.int2ObjectEntrySet(), doesItemMatch)) {
-					clearState();
-					setupState(usefulSlots);
-				}
-			}
-		}
-	}
+                if (!allEntriesMatch(usefulSlots.int2ObjectEntrySet(), doesItemMatch)) {
+                    clearState();
+                    setupState(usefulSlots);
+                }
+            }
+        }
+    }
 
-	private void clearState() {
-		trackedItemStates.clear();
-		lastKnownScreenId = Integer.MIN_VALUE;
-	}
+    private void clearState() {
+        trackedItemStates.clear();
+        lastKnownScreenId = Integer.MIN_VALUE;
+    }
 
-	private static boolean allEntriesMatch(ObjectSet<Int2ObjectMap.Entry<ItemStack>> entries, Predicate<Int2ObjectMap.Entry<ItemStack>> predicate) {
-		for (Int2ObjectMap.Entry<ItemStack> entry : entries) {
-			if (!predicate.test(entry)) return false;
-		}
+    private static boolean allEntriesMatch(ObjectSet<Int2ObjectMap.Entry<ItemStack>> entries, Predicate<Int2ObjectMap.Entry<ItemStack>> predicate) {
+        for (Int2ObjectMap.Entry<ItemStack> entry : entries) {
+            if (!predicate.test(entry)) return false;
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	private record ItemState(Item item, boolean clicked) {
-		private static final ItemState DEFAULT = new ItemState(null, false);
+    private record ItemState(Item item, boolean clicked) {
+        private static final ItemState DEFAULT = new ItemState(null, false);
 
-		boolean itemMatches(Item item) {
-			return this.item.equals(item);
-		}
+        boolean itemMatches(Item item) {
+            return this.item.equals(item);
+        }
 
-		ItemState click() {
-			return new ItemState(item, true);
-		}
+        ItemState click() {
+            return new ItemState(item, true);
+        }
 
-		static ItemState of(Item item) {
-			return new ItemState(item, false);
-		}
-	}
+        static ItemState of(Item item) {
+            return new ItemState(item, false);
+        }
+    }
 }

@@ -1,8 +1,5 @@
 package de.hysky.skyblocker.skyblock.tabhud.widget;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import de.hysky.skyblocker.skyblock.tabhud.util.Colors;
 import de.hysky.skyblocker.skyblock.tabhud.util.Ico;
 import de.hysky.skyblocker.skyblock.tabhud.util.PlayerListMgr;
@@ -12,6 +9,9 @@ import de.hysky.skyblocker.skyblock.tabhud.widget.component.ProgressComponent;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 // this widget shows info about fire sales when in the hub.
 // or not, if there isn't one going on
@@ -48,7 +48,7 @@ public class FireSaleWidget extends Widget {
             return;
         }
 
-        for (int i = 46;; i++) {
+        for (int i = 46; ; i++) {
             Matcher m = PlayerListMgr.regexAt(i, FIRE_PATTERN);
             if (m == null) {
                 break;

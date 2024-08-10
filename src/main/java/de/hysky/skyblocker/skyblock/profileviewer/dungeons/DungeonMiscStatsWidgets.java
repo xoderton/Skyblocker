@@ -42,7 +42,8 @@ public class DungeonMiscStatsWidgets {
                 totalRuns += runs;
             }
 
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
 
     public void render(DrawContext context, int x, int y) {

@@ -1,8 +1,9 @@
 package de.hysky.skyblocker.mixins;
 
-import de.hysky.skyblocker.skyblock.tabhud.screenbuilder.ScreenMaster;
+import com.llamalad7.mixinextras.sugar.Local;
 import de.hysky.skyblocker.config.SkyblockerConfigManager;
 import de.hysky.skyblocker.skyblock.tabhud.TabHud;
+import de.hysky.skyblocker.skyblock.tabhud.screenbuilder.ScreenMaster;
 import de.hysky.skyblocker.skyblock.tabhud.util.PlayerListMgr;
 import de.hysky.skyblocker.utils.Utils;
 import net.fabricmc.api.EnvType;
@@ -18,8 +19,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import com.llamalad7.mixinextras.sugar.Local;
 
 @Environment(EnvType.CLIENT)
 @Mixin(PlayerListHud.class)
@@ -44,7 +43,7 @@ public class PlayerListHudMixin {
         h = (int) (h / scale);
 
         try {
-            ScreenMaster.render(context, w,h);
+            ScreenMaster.render(context, w, h);
             // Screen screen = Screen.getCorrect(w, h, footer);
             // screen.render(context);
             info.cancel();

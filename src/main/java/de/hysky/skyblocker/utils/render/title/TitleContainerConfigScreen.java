@@ -29,12 +29,12 @@ public class TitleContainerConfigScreen extends Screen {
     private boolean changedScale;
 
     protected TitleContainerConfigScreen() {
-    	this(null);
+        this(null);
     }
 
     public TitleContainerConfigScreen(Screen parent) {
-		super(Text.of("Title Container HUD Config"));
-		this.parent = parent;
+        super(Text.of("Title Container HUD Config"));
+        this.parent = parent;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class TitleContainerConfigScreen extends Screen {
     }
 
     private Pair<Vector2f, Vector2f> getSelectionBoundingBox() {
-    	UIAndVisualsConfig.Alignment alignment = SkyblockerConfigManager.get().uiAndVisuals.titleContainer.alignment;
+        UIAndVisualsConfig.Alignment alignment = SkyblockerConfigManager.get().uiAndVisuals.titleContainer.alignment;
 
         float midWidth = getSelectionWidth() / 2F;
         float x1 = 0;
@@ -135,7 +135,7 @@ public class TitleContainerConfigScreen extends Screen {
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (keyCode == GLFW.GLFW_KEY_Q) {
-        	UIAndVisualsConfig.Alignment current = SkyblockerConfigManager.get().uiAndVisuals.titleContainer.alignment;
+            UIAndVisualsConfig.Alignment current = SkyblockerConfigManager.get().uiAndVisuals.titleContainer.alignment;
             SkyblockerConfigManager.get().uiAndVisuals.titleContainer.alignment = switch (current) {
                 case LEFT -> UIAndVisualsConfig.Alignment.MIDDLE;
                 case MIDDLE -> UIAndVisualsConfig.Alignment.RIGHT;

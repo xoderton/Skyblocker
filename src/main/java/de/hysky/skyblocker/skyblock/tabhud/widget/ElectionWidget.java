@@ -1,9 +1,5 @@
 package de.hysky.skyblocker.skyblock.tabhud.widget;
 
-import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import de.hysky.skyblocker.skyblock.tabhud.util.Ico;
 import de.hysky.skyblocker.skyblock.tabhud.util.PlayerListMgr;
 import de.hysky.skyblocker.skyblock.tabhud.widget.component.IcoTextComponent;
@@ -12,6 +8,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 // this widget shows the status or results of the current election
 
@@ -44,7 +44,7 @@ public class ElectionWidget extends Widget {
         MAYOR_DATA.put("Marina", Ico.FISH_ROD);
     }
 
-    private static final Formatting[] COLS = { Formatting.GOLD, Formatting.RED, Formatting.LIGHT_PURPLE };
+    private static final Formatting[] COLS = {Formatting.GOLD, Formatting.RED, Formatting.LIGHT_PURPLE};
 
     public ElectionWidget() {
         super(TITLE, Formatting.YELLOW.getColorValue());

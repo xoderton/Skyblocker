@@ -4,10 +4,9 @@ import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.mojang.authlib.yggdrasil.YggdrasilServicesKeyInfo;
-
+import de.hysky.skyblocker.utils.Utils;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
-import de.hysky.skyblocker.utils.Utils;
 import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -42,7 +41,7 @@ public class YggdrasilServicesKeyInfoMixin {
                     }
                     int signatureHashCode = signature.hashCode();
                     if (!ERRONEUS_SIGNATURE_HASHES.contains(signatureHashCode)) {
-                    	ERRONEUS_SIGNATURE_HASHES.add(signatureHashCode);
+                        ERRONEUS_SIGNATURE_HASHES.add(signatureHashCode);
                         LOGGER.warn("[Skyblocker Base64 Fixer] Failed to decode base64 string No.{}: {}", ERRONEUS_SIGNATURE_HASHES.size() - 1, signature);
                     } else {
                         LOGGER.warn("[Skyblocker Base64 Fixer] Failed to decode the base64 string No.{} again", ERRONEUS_SIGNATURE_HASHES.indexOf(signatureHashCode));

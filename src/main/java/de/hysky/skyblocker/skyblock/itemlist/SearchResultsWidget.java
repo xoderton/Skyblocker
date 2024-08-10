@@ -118,27 +118,27 @@ public class SearchResultsWidget implements Drawable, Element {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-    	TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
+        TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
         RenderSystem.disableDepthTest();
         if (this.displayRecipes) {
             //Craft text - usually a requirement for the recipe
             String craftText = this.recipeResults.get(this.currentPage).getCraftText();
             if (textRenderer.getWidth(craftText) > MAX_TEXT_WIDTH) {
-            	drawTooltip(textRenderer, context, craftText, this.parentX + 11, this.parentY + 31, mouseX, mouseY);
-            	craftText = textRenderer.trimToWidth(craftText, MAX_TEXT_WIDTH) + ELLIPSIS;
+                drawTooltip(textRenderer, context, craftText, this.parentX + 11, this.parentY + 31, mouseX, mouseY);
+                craftText = textRenderer.trimToWidth(craftText, MAX_TEXT_WIDTH) + ELLIPSIS;
             }
             context.drawTextWithShadow(textRenderer, craftText, this.parentX + 11, this.parentY + 31, 0xffffffff);
 
             //Item name
             Text resultText = this.recipeResults.get(this.currentPage).getResult().getName();
             if (textRenderer.getWidth(resultText) > MAX_TEXT_WIDTH) {
-            	drawTooltip(textRenderer, context, resultText, this.parentX + 11, this.parentY + 43, mouseX, mouseY);
-            	StringVisitable trimmed = StringVisitable.concat(textRenderer.trimToWidth(resultText, MAX_TEXT_WIDTH), StringVisitable.plain(ELLIPSIS));
-            	OrderedText ordered = Language.getInstance().reorder(trimmed);
+                drawTooltip(textRenderer, context, resultText, this.parentX + 11, this.parentY + 43, mouseX, mouseY);
+                StringVisitable trimmed = StringVisitable.concat(textRenderer.trimToWidth(resultText, MAX_TEXT_WIDTH), StringVisitable.plain(ELLIPSIS));
+                OrderedText ordered = Language.getInstance().reorder(trimmed);
 
-            	context.drawTextWithShadow(textRenderer, ordered, this.parentX + 11, this.parentY + 43, 0xffffffff);
+                context.drawTextWithShadow(textRenderer, ordered, this.parentX + 11, this.parentY + 43, 0xffffffff);
             } else {
-            	context.drawTextWithShadow(textRenderer, resultText, this.parentX + 11, this.parentY + 43, 0xffffffff);
+                context.drawTextWithShadow(textRenderer, resultText, this.parentX + 11, this.parentY + 43, 0xffffffff);
             }
 
             //Arrow pointing to result item from the recipe
@@ -159,18 +159,18 @@ public class SearchResultsWidget implements Drawable, Element {
     /**
      * Used for drawing tooltips over truncated text
      */
-    private void drawTooltip(TextRenderer textRenderer, DrawContext context, Text text, int textX, int textY, int mouseX, int mouseY){
+    private void drawTooltip(TextRenderer textRenderer, DrawContext context, Text text, int textX, int textY, int mouseX, int mouseY) {
         RenderSystem.disableDepthTest();
-            if (mouseX >= textX && mouseX <= textX + MAX_TEXT_WIDTH + 4 && mouseY >=  textY && mouseY <= textY + 9) {
-                context.drawTooltip(textRenderer, text, mouseX, mouseY);
-            }
+        if (mouseX >= textX && mouseX <= textX + MAX_TEXT_WIDTH + 4 && mouseY >= textY && mouseY <= textY + 9) {
+            context.drawTooltip(textRenderer, text, mouseX, mouseY);
+        }
         RenderSystem.enableDepthTest();
     }
 
     /**
      * @see #drawTooltip(TextRenderer, DrawContext, Text, int, int, int, int)
      */
-    private void drawTooltip(TextRenderer textRenderer, DrawContext context, String text, int textX, int textY, int mouseX, int mouseY){
+    private void drawTooltip(TextRenderer textRenderer, DrawContext context, String text, int textX, int textY, int mouseX, int mouseY) {
         drawTooltip(textRenderer, context, Text.of(text), textX, textY, mouseX, mouseY);
     }
 

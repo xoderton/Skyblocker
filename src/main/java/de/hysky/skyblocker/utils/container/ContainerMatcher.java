@@ -8,6 +8,7 @@ import java.util.function.Predicate;
 public interface ContainerMatcher extends Predicate<Screen> {
     /**
      * Tests if the given screen should be handled by this matcher.
+     *
      * @return {@code true} if this matcher should apply to the given screen, {@code false} otherwise
      */
     @Override

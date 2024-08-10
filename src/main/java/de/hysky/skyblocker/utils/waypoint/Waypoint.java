@@ -101,7 +101,8 @@ public class Waypoint implements Renderable {
     @Override
     public void render(WorldRenderContext context) {
         switch (typeSupplier.get()) {
-            case WAYPOINT -> RenderHelper.renderFilledWithBeaconBeam(context, pos, getColorComponents(), alpha, throughWalls);
+            case WAYPOINT ->
+                    RenderHelper.renderFilledWithBeaconBeam(context, pos, getColorComponents(), alpha, throughWalls);
             case OUTLINED_WAYPOINT -> {
                 float[] colorComponents = getColorComponents();
                 RenderHelper.renderFilledWithBeaconBeam(context, pos, colorComponents, alpha, throughWalls);

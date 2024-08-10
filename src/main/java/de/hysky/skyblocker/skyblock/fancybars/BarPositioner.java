@@ -5,7 +5,10 @@ import net.minecraft.client.gui.ScreenRect;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class BarPositioner {
 
@@ -255,7 +258,8 @@ public class BarPositioner {
      * @param minSize      the minimum (free and target size)
      * @param maxSize      the maximum (free and target size, THIS SHOULD BE THE SAME AS {@code targetSize} FOR {@code isTargetSize = true})
      */
-    public record SizeRule(boolean isTargetSize, int targetSize, int totalWidth, int widthPerSize, int minSize, int maxSize) {
+    public record SizeRule(boolean isTargetSize, int targetSize, int totalWidth, int widthPerSize, int minSize,
+                           int maxSize) {
         public static SizeRule freeSize(int widthPerSize, int minSize, int maxSize) {
             return new SizeRule(false, -1, -1, widthPerSize, minSize, maxSize);
         }

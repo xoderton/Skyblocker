@@ -3,14 +3,13 @@ package de.hysky.skyblocker.utils;
 import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-
 import net.minecraft.util.math.BlockPos;
 
 public final class PosUtils {
     public static final Codec<BlockPos> ALT_BLOCK_POS_CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            Codec.INT.fieldOf("x").forGetter(BlockPos::getX),
-            Codec.INT.fieldOf("y").forGetter(BlockPos::getY),
-            Codec.INT.fieldOf("z").forGetter(BlockPos::getZ))
+                    Codec.INT.fieldOf("x").forGetter(BlockPos::getX),
+                    Codec.INT.fieldOf("y").forGetter(BlockPos::getY),
+                    Codec.INT.fieldOf("z").forGetter(BlockPos::getZ))
             .apply(instance, BlockPos::new));
 
     public static BlockPos parsePosString(String posData) {

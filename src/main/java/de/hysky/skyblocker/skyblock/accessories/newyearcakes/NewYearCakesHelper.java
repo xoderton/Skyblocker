@@ -2,8 +2,8 @@ package de.hysky.skyblocker.skyblock.accessories.newyearcakes;
 
 import de.hysky.skyblocker.config.SkyblockerConfigManager;
 import de.hysky.skyblocker.utils.Utils;
-import de.hysky.skyblocker.utils.render.gui.ColorHighlight;
 import de.hysky.skyblocker.utils.container.SimpleContainerSolver;
+import de.hysky.skyblocker.utils.render.gui.ColorHighlight;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
@@ -67,7 +67,8 @@ public class NewYearCakesHelper extends SimpleContainerSolver {
     @Override
     public List<ColorHighlight> getColors(Int2ObjectMap<ItemStack> slots) {
         String profile = Utils.getProfile();
-        if (cakes.isEmpty() || !cakes.containsKey(profile) || cakes.containsKey(profile) && cakes.get(profile).isEmpty()) return List.of();
+        if (cakes.isEmpty() || !cakes.containsKey(profile) || cakes.containsKey(profile) && cakes.get(profile).isEmpty())
+            return List.of();
         List<ColorHighlight> highlights = new ArrayList<>();
         for (Int2ObjectMap.Entry<ItemStack> entry : slots.int2ObjectEntrySet()) {
             int year = getCakeYear(entry.getValue());

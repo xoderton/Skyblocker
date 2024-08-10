@@ -146,6 +146,7 @@ public class FarmingHud {
             this.nbtKey = nbtKey;
             this.text = text;
         }
+
         public boolean matchesText(String textToMatch) {
             return this.text.equals(textToMatch);
         }

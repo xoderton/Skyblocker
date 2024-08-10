@@ -123,7 +123,8 @@ public class EnderNodes {
 
         private void updateParticles() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (lastConfirmed + 2000 > currentTimeMillis || client.world == null || !particles.entrySet().stream().allMatch(entry -> entry.getValue().leftInt() >= 5 && entry.getValue().rightInt() >= 5 || !client.world.getBlockState(pos.offset(entry.getKey())).isAir())) return;
+            if (lastConfirmed + 2000 > currentTimeMillis || client.world == null || !particles.entrySet().stream().allMatch(entry -> entry.getValue().leftInt() >= 5 && entry.getValue().rightInt() >= 5 || !client.world.getBlockState(pos.offset(entry.getKey())).isAir()))
+                return;
             lastConfirmed = currentTimeMillis;
             for (Map.Entry<Direction, IntIntPair> entry : particles.entrySet()) {
                 entry.getValue().left(0);

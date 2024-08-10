@@ -10,28 +10,28 @@ import java.util.List;
 
 /**
  * The terminal where you change all the panes that are red to green.
- * 
+ * <p>
  * This doesn't solve the terminal because you don't need a solver for it, but rather to simply allow for click blocking.
  */
 public final class LightsOnTerminal extends SimpleContainerSolver implements TerminalSolver {
-	private static final List<ColorHighlight> EMPTY = List.of();
+    private static final List<ColorHighlight> EMPTY = List.of();
 
-	public LightsOnTerminal() {
-		super("^Correct all the panes!$");
-	}
+    public LightsOnTerminal() {
+        super("^Correct all the panes!$");
+    }
 
-	@Override
-	public boolean isEnabled() {
-		return shouldBlockIncorrectClicks();
-	}
+    @Override
+    public boolean isEnabled() {
+        return shouldBlockIncorrectClicks();
+    }
 
-	@Override
-	public List<ColorHighlight> getColors(Int2ObjectMap<ItemStack> slots) {
-		return EMPTY;
-	}
+    @Override
+    public List<ColorHighlight> getColors(Int2ObjectMap<ItemStack> slots) {
+        return EMPTY;
+    }
 
-	@Override
-	public boolean onClickSlot(int slot, ItemStack stack, int screenId) {
-		return stack.isOf(Items.LIME_STAINED_GLASS_PANE);
-	}
+    @Override
+    public boolean onClickSlot(int slot, ItemStack stack, int screenId) {
+        return stack.isOf(Items.LIME_STAINED_GLASS_PANE);
+    }
 }

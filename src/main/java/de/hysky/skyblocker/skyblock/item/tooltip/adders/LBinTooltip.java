@@ -12,28 +12,28 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class LBinTooltip extends SimpleTooltipAdder {
-	public static boolean lbinExist = false;
+    public static boolean lbinExist = false;
 
-	public LBinTooltip(int priority) {
-		super(priority);
-	}
+    public LBinTooltip(int priority) {
+        super(priority);
+    }
 
-	@Override
-	public boolean isEnabled() {
-		return TooltipInfoType.LOWEST_BINS.isTooltipEnabled();
-	}
+    @Override
+    public boolean isEnabled() {
+        return TooltipInfoType.LOWEST_BINS.isTooltipEnabled();
+    }
 
-	@Override
-	public void addToTooltip(@Nullable Slot focusedSlot, ItemStack stack, List<Text> lines) {
-		lbinExist = false;
+    @Override
+    public void addToTooltip(@Nullable Slot focusedSlot, ItemStack stack, List<Text> lines) {
+        lbinExist = false;
         String skyblockApiId = stack.getSkyblockApiId();
 
-		// bazaarOpened & bazaarExist check for lbin, because Skytils keeps some bazaar item data in lbin api
-		if (TooltipInfoType.LOWEST_BINS.hasOrNullWarning(skyblockApiId) && !BazaarPriceTooltip.bazaarExist) {
-			lines.add(Text.literal(String.format("%-19s", "Lowest BIN Price:"))
-			              .formatted(Formatting.GOLD)
-			              .append(ItemTooltip.getCoinsMessage(TooltipInfoType.LOWEST_BINS.getData().get(skyblockApiId).getAsDouble(), stack.getCount())));
-			lbinExist = true;
-		}
-	}
+        // bazaarOpened & bazaarExist check for lbin, because Skytils keeps some bazaar item data in lbin api
+        if (TooltipInfoType.LOWEST_BINS.hasOrNullWarning(skyblockApiId) && !BazaarPriceTooltip.bazaarExist) {
+            lines.add(Text.literal(String.format("%-19s", "Lowest BIN Price:"))
+                    .formatted(Formatting.GOLD)
+                    .append(ItemTooltip.getCoinsMessage(TooltipInfoType.LOWEST_BINS.getData().get(skyblockApiId).getAsDouble(), stack.getCount())));
+            lbinExist = true;
+        }
+    }
 }

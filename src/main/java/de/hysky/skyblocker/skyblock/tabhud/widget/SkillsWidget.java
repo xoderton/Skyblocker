@@ -1,18 +1,14 @@
 package de.hysky.skyblocker.skyblock.tabhud.widget;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import de.hysky.skyblocker.skyblock.tabhud.util.Ico;
 import de.hysky.skyblocker.skyblock.tabhud.util.PlayerListMgr;
-import de.hysky.skyblocker.skyblock.tabhud.widget.component.Component;
-import de.hysky.skyblocker.skyblock.tabhud.widget.component.IcoFatTextComponent;
-import de.hysky.skyblocker.skyblock.tabhud.widget.component.IcoTextComponent;
-import de.hysky.skyblocker.skyblock.tabhud.widget.component.ProgressComponent;
-import de.hysky.skyblocker.skyblock.tabhud.widget.component.TableComponent;
+import de.hysky.skyblocker.skyblock.tabhud.widget.component.*;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 // this widget shows info about a skill and some stats,
 // as seen in the rightmost column of the default HUD

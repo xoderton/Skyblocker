@@ -82,10 +82,12 @@ public class DropdownWidget<T> extends ElementListWidget<DropdownWidget.Entry<T>
     }
 
     @Override
-    protected void drawMenuListBackground(DrawContext context) {}
+    protected void drawMenuListBackground(DrawContext context) {
+    }
 
     @Override
-    protected void drawHeaderAndFooterSeparators(DrawContext context) {}
+    protected void drawHeaderAndFooterSeparators(DrawContext context) {
+    }
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount) {

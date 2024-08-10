@@ -62,7 +62,8 @@ public abstract class InGameHudMixin {
     public void skyblocker$renderHotbarItemLockOrRarityBg(CallbackInfo ci, @Local(argsOnly = true) DrawContext context, @Local(ordinal = 4, name = "m") int index, @Local(ordinal = 5, name = "n") int x, @Local(ordinal = 6, name = "o") int y, @Local PlayerEntity player) {
         if (Utils.isOnSkyblock()) {
             // slot lock
-            if (SkyblockerConfigManager.get().general.itemInfoDisplay.itemRarityBackgrounds) ItemRarityBackgrounds.tryDraw(player.getInventory().main.get(index), context, x, y);
+            if (SkyblockerConfigManager.get().general.itemInfoDisplay.itemRarityBackgrounds)
+                ItemRarityBackgrounds.tryDraw(player.getInventory().main.get(index), context, x, y);
             if (HotbarSlotLock.isLocked(index)) {
                 RenderSystem.enableBlend();
                 context.drawTexture(SLOT_LOCK_ICON.get(), x, y, 0, 0, 16, 16, 16, 16);
@@ -77,7 +78,7 @@ public abstract class InGameHudMixin {
         }
     }
 
-    @Inject(method = { "renderExperienceBar", "renderExperienceLevel" }, at = @At("HEAD"), cancellable = true)
+    @Inject(method = {"renderExperienceBar", "renderExperienceLevel"}, at = @At("HEAD"), cancellable = true)
     private void skyblocker$renderExperienceBar(CallbackInfo ci) {
         if (Utils.isOnSkyblock() && FancyStatusBars.isEnabled() && FancyStatusBars.isExperienceFancyBarVisible())
             ci.cancel();
@@ -85,7 +86,8 @@ public abstract class InGameHudMixin {
 
     @Inject(method = "renderStatusBars", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/hud/InGameHud;renderHealthBar(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/entity/player/PlayerEntity;IIIIFIIIZ)V", shift = At.Shift.AFTER), cancellable = true)
     private void skyblocker$renderStatusBars(DrawContext context, CallbackInfo ci) {
-        if (Utils.isOnSkyblock() && statusBars.render(context, context.getScaledWindowWidth(), context.getScaledWindowHeight())) ci.cancel();
+        if (Utils.isOnSkyblock() && statusBars.render(context, context.getScaledWindowWidth(), context.getScaledWindowHeight()))
+            ci.cancel();
     }
 
     @Inject(method = "renderHealthBar", at = @At(value = "HEAD"), cancellable = true)

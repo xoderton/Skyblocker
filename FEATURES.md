@@ -1,25 +1,26 @@
 ### Dungeon Features:
+
 - **Fancy Party Finder GUI**
 - **Secrets Waypoint Highlight:** Fully customizable
 - **Minimap & Score**
 - **Starred Mob Glow**
 - **Croesus Helper:**
-  - Highlight not opened chests
-  - Profit calculator
+    - Highlight not opened chests
+    - Profit calculator
 - **Puzzle Solver:**
-  - *Three Weirdos*
-  - *Blaze*
-  - *Creeper Beams*
-  - *Quiz - Ouro the Omniscient*
-  - *Tic Tac Toe*
-  - *Waterboard*
-  - *Silverfish*
-  - *Ice Fill*
-  - *Boulder*
-  - Terminal:
-    - *Order*
-    - *Coloured Items*
-    - *Item Name*
+    - *Three Weirdos*
+    - *Blaze*
+    - *Creeper Beams*
+    - *Quiz - Ouro the Omniscient*
+    - *Tic Tac Toe*
+    - *Waterboard*
+    - *Silverfish*
+    - *Ice Fill*
+    - *Boulder*
+    - Terminal:
+        - *Order*
+        - *Coloured Items*
+        - *Item Name*
 - **Rare Drop Special Effects**
 - **Chest Profit Calculator**
 - **F3/M3 Fire Freeze Staff Timer**
@@ -36,84 +37,93 @@
 - **Hide Soulweaver Skulls**
 
 ### Kuudra Features:
+
 - **Kuudra waypoints:**
-  - *Supplies*
-  - *Supply Piles*
-  - *Fuel Cells*
-  - *Safe Spots*
-  - *Pearl*
+    - *Supplies*
+    - *Supply Piles*
+    - *Fuel Cells*
+    - *Safe Spots*
+    - *Pearl*
 - **No arrow poison warning**
 - **Low arrow poison warning**
 
 ### Item and Armor Customization:
+
 - *Item Renaming*
 - *Custom Armor Dye Colors*
 - *Custom Armor Trims*
 - *Custom Animated Dyes*
 
 ### Health and Status Bars:
+
 - **Bars:**
-  - *Health and absorption*
-  - *Mana*
-  - *Defense*
-  - *XP*
+    - *Health and absorption*
+    - *Mana*
+    - *Defense*
+    - *XP*
 - **Vanilla health/xp and fancy bar shown in parallel**
 
 ### Dwarven Mines / Crystal Hollows / Glacite Mining:
+
 - **Dwarven Mines Solver:**
-  - Fetchur
-  - Puzzler
+    - Fetchur
+    - Puzzler
 - **Crystal Hollows:**
-  - Crystal Hollows Map:
-    - *Shows players location in Crystal Hollows*
-    - *Highlights important waypoints in Crystal Hollows*
-  - Crystal Hollows Waypoints:
-    - *Shows waypoints for special locations*
-    - *Find locations in chat messages*
-    - *Share waypoints*
-  - Metal detector helper
+    - Crystal Hollows Map:
+        - *Shows players location in Crystal Hollows*
+        - *Highlights important waypoints in Crystal Hollows*
+    - Crystal Hollows Waypoints:
+        - *Shows waypoints for special locations*
+        - *Find locations in chat messages*
+        - *Share waypoints*
+    - Metal detector helper
 - **Glacite Tunnels:**
-  - *Cold Overlay*
+    - *Cold Overlay*
 - **Commission HUD:**
-  - *Provides information on Dwarven Mines / Crystal Hollows / Glacite Mining quests*
+    - *Provides information on Dwarven Mines / Crystal Hollows / Glacite Mining quests*
 - **Powder HUD**
 - **Ordered Waypoints**
 
 ### Rift Features:
+
 - **Mirrorverse Waypoints**
 - **Enigma soul waypoint**
 - **Blobbercysts Glow**
 
 ### Spider's Den Features:
+
 - **Hidden Relic Helper**
 
 ### Slayer Helper:
+
 - **Vampire:**
-  - Effigy Waypoints
-  - Healing Melon Indicator
-  - Twinclaws Ice Indicator
-  - Steak Stake Indicator
+    - Effigy Waypoints
+    - Healing Melon Indicator
+    - Twinclaws Ice Indicator
+    - Steak Stake Indicator
 - **Enderman:**
-  - Beacon Highlighting
-  - Yang Glyph Notification
-  - Nukekubi Head Highlighting
+    - Beacon Highlighting
+    - Yang Glyph Notification
+    - Nukekubi Head Highlighting
 
 ### Garden Features:
+
 - **Farming HUD:**
-  - Counter
-  - Crops/min
-  - Coins/h
-  - Blocks/s
-  - Farming Level
-  - Farming XP/h
-  - Yaw and Pitch
+    - Counter
+    - Crops/min
+    - Coins/h
+    - Blocks/s
+    - Farming Level
+    - Farming XP/h
+    - Yaw and Pitch
 - **Visitor Helper:**
-  - Buy items that visitors require from bazaar by clicking the text
-  - Copy amount to clipboard
+    - Buy items that visitors require from bazaar by clicking the text
+    - Copy amount to clipboard
 - **Disable title and chat messages for Melon/Pumpkin Dicer**
 - **Basic garden mouse locking feature (set mouse sensitivity to 0)**
 
 ### Visual Enhancements:
+
 - **Compact damage**
 - **Waypoints for commissions in dwarven mines and glacite tunnels**
 - **Fancy Tab HUD:** Fully configurable with a resource pack.
@@ -122,51 +132,54 @@
 - **Personal Compactor/Deletor Preview**
 - **Hide Fake Players in Social Interactions Screen**
 - **Item Rarity Backgrounds:**
-  - Circle or Square
+    - Circle or Square
 - **Item Cooldown Display**
 - **Configure Fire-Overlay Height**
 - **End HUD Widget:**
-  - Zealots:
-    - *Since last eye*
-    - *Total zealots kills*
-    - *Avg kills per eye*
-  - Endstone Protector:
-    - *stage*
-    - *Location*
+    - Zealots:
+        - *Since last eye*
+        - *Total zealots kills*
+        - *Avg kills per eye*
+    - Endstone Protector:
+        - *stage*
+        - *Location*
 - **Ender Nodes Helper**
 
 ### User Interface Enhancements:
+
 - **Search overlays for bz and ah**
 - **Slot Text:**
-  - *Attribute Shard Info Display*
-  - *Catacombs level*
-  - *Collection level*
-  - *Enchantment book level*
-  - *Minion level*
-  - *Pet level*
-  - *Potion level*
-  - *Prehistoric egg blocks walked*
-  - *Rancher's boots speed cap*
-  - *Skill level*
-  - *Skyblock level*
-  - *Essence Shop*
-  - *Your Essence*
-  - *Power Stone Guide*
-  - *Stats Tuning*
+    - *Attribute Shard Info Display*
+    - *Catacombs level*
+    - *Collection level*
+    - *Enchantment book level*
+    - *Minion level*
+    - *Pet level*
+    - *Potion level*
+    - *Prehistoric egg blocks walked*
+    - *Rancher's boots speed cap*
+    - *Skill level*
+    - *Skyblock level*
+    - *Essence Shop*
+    - *Your Essence*
+    - *Power Stone Guide*
+    - *Stats Tuning*
 - **Drill Fuel and Pickonimbus 2000 in Item Durability Bar**
 - **Hotbar Slot Lock Keybind:** Select the hotbar slot you want to lock/unlock and press the lock button.
 - **Item Tooltip:** (Provides information on)
-  - *NPC Sell Prices*
-  - *Motes Prices*
-  - *Bazaar (average, lowest bin)*
-  - *Auction House*
-  - *Museum*
-  - *Exotic Armor Identifier*
-  - *Item Quality*
-  - *Accessories Helper*
-- **Quicknav:** (Fully customizeable) Fast navigation between pets, armor, enderchest, skill, collection, crafting, enchant, anvil, warp dungeon, and warp hub.
+    - *NPC Sell Prices*
+    - *Motes Prices*
+    - *Bazaar (average, lowest bin)*
+    - *Auction House*
+    - *Museum*
+    - *Exotic Armor Identifier*
+    - *Item Quality*
+    - *Accessories Helper*
+- **Quicknav:** (Fully customizeable) Fast navigation between pets, armor, enderchest, skill, collection, crafting,
+  enchant, anvil, warp dungeon, and warp hub.
 - **Recipe Book:** Lists all Skyblock items in the vanilla recipe book, allowing you to see the recipe of the item.
-- **Backpack Preview:** After clicking your backpack or enderchest once, you can hover over the backpack or enderchest and hold Shift to preview its contents.
+- **Backpack Preview:** After clicking your backpack or enderchest once, you can hover over the backpack or enderchest
+  and hold Shift to preview its contents.
 - **New Year Cakes Helper**
 - **Fancy Crafting Table**
 - **Info Screen**
@@ -175,33 +188,37 @@
 - **Sign calculator**
 
 ### Barn Features:
+
 - **Barn Solver:**
-  - *Treasure Hunter*
-  - *Hungry Hiker*
+    - *Treasure Hunter*
+    - *Hungry Hiker*
 
 ### Chat Features:
+
 - **Custom Chat Rules**
 - **Warp command auto-complete**
 - **Hide Messages:**
-  - *Ability Cooldown*
-  - *Heal*
-  - *Aspect of the End (AOTE)*
-  - *Implosion*
-  - *Molten Wave*
-  - *`/show command`*
-  - *Teleport Pad Messages*
-  - *Sky Mall*
+    - *Ability Cooldown*
+    - *Heal*
+    - *Aspect of the End (AOTE)*
+    - *Implosion*
+    - *Molten Wave*
+    - *`/show command`*
+    - *Teleport Pad Messages*
+    - *Sky Mall*
 
 ### Miscellaneous Solvers:
+
 - **Experiments Solvers**
 - **Fishing:**
-  - Helper (Includes sound notifications)
-  - Fishing rod timer (change color after 20 seconds)
-  - Hide other rods
+    - Helper (Includes sound notifications)
+    - Fishing rod timer (change color after 20 seconds)
+    - Hide other rods
 - **Mythological Ritual Helper**
 - **Chocolate factory Helper**
 
 ### Miscellaneous Features:
+
 - **[Roughly Enough Items (REI)](https://modrinth.com/mod/rei) and [EMI](https://modrinth.com/mod/emi) Support**
 - **Item Protection**
 - **Discord Rich Presence:** Allows users to show their Piggy, Bits, or location, along with a custom message.

@@ -25,10 +25,11 @@ public class DungeonFloorRunsWidget {
     public DungeonFloorRunsWidget(JsonObject pProfile) {
         try {
             dungeonsStats = pProfile.getAsJsonObject("dungeons").getAsJsonObject("dungeon_types");
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
 
-    public void render(DrawContext context, int mouseX ,int mouseY, int x, int y) {
+    public void render(DrawContext context, int mouseX, int mouseY, int x, int y) {
         context.drawTexture(TEXTURE, x, y, 0, 0, 109, 110, 109, 110);
         context.drawText(textRenderer, Text.literal("Floor Runs").formatted(Formatting.BOLD), x + 6, y + 4, Color.WHITE.getRGB(), true);
 

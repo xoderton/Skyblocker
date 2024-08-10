@@ -34,21 +34,23 @@ public class SubPageSelectButton extends ClickableWidget {
     @Override
     protected void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
         context.fill(this.getX(), this.getY(), this.getX() + 20, this.getY() + 20, Color.BLACK.getRGB());
-        context.drawTexture(TEXTURES.get(toggled, (mouseX > getX() && mouseX < getX() + 19 && mouseY > getY() && mouseY < getY() + 19)), this.getX() + 1, this.getY() + 1,0, 0, 18, 18, 18, 18);
+        context.drawTexture(TEXTURES.get(toggled, (mouseX > getX() && mouseX < getX() + 19 && mouseY > getY() && mouseY < getY() + 19)), this.getX() + 1, this.getY() + 1, 0, 0, 18, 18, 18, 18);
         context.drawItem(ICON, this.getX() + 2, this.getY() + 2);
         if ((mouseX > getX() + 1 && mouseX < getX() + 19 && mouseY > getY() + 1 && mouseY < getY() + 19)) {
             LoreComponent lore = ICON.get(DataComponentTypes.LORE);
-            if (lore != null) context.drawTooltip(MinecraftClient.getInstance().textRenderer, lore.lines(), mouseX, mouseY + 10);
+            if (lore != null)
+                context.drawTooltip(MinecraftClient.getInstance().textRenderer, lore.lines(), mouseX, mouseY + 10);
         }
     }
 
     @Override
     protected boolean clicked(double mouseX, double mouseY) {
-        return this.active && this.visible &&(mouseX > getX() + 1 && mouseX < getX() + 19 && mouseY > getY() + 1 && mouseY < getY() + 19);
+        return this.active && this.visible && (mouseX > getX() + 1 && mouseX < getX() + 19 && mouseY > getY() + 1 && mouseY < getY() + 19);
     }
 
     @Override
-    protected void appendClickableNarrations(NarrationMessageBuilder builder) {}
+    protected void appendClickableNarrations(NarrationMessageBuilder builder) {
+    }
 
     public void setToggled(boolean toggled) {
         this.toggled = toggled;

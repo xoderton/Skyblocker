@@ -23,8 +23,8 @@ public class ItemListTab extends ItemListWidget.TabContainerWidget {
         this.client = client;
         this.searchField = searchField;
         if (ItemRepository.filesImported()) {
-            this.results = new SearchResultsWidget(this.client, x - 9, y - 9 );
-            this.results.updateSearchResult(searchField == null ? "": this.searchField.getText());
+            this.results = new SearchResultsWidget(this.client, x - 9, y - 9);
+            this.results.updateSearchResult(searchField == null ? "" : this.searchField.getText());
         }
     }
 
@@ -63,7 +63,8 @@ public class ItemListTab extends ItemListWidget.TabContainerWidget {
     }
 
     @Override
-    protected void appendClickableNarrations(NarrationMessageBuilder builder) {}
+    protected void appendClickableNarrations(NarrationMessageBuilder builder) {
+    }
 
     public void setSearchField(TextFieldWidget searchField) {
         this.searchField = searchField;

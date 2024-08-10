@@ -48,8 +48,10 @@ public class SkillsPage implements ProfileViewerPage {
     private int getSkillCap(String skill) {
         try {
             return switch (skill) {
-                case "Farming" -> this.PLAYER_PROFILE.getAsJsonObject("jacobs_contest").getAsJsonObject("perks").get("farming_level_cap").getAsInt();
-                case "Taming" -> this.PLAYER_PROFILE.getAsJsonObject("pets_data").getAsJsonObject("pet_care").get("pet_types_sacrificed").getAsJsonArray().size();
+                case "Farming" ->
+                        this.PLAYER_PROFILE.getAsJsonObject("jacobs_contest").getAsJsonObject("perks").get("farming_level_cap").getAsInt();
+                case "Taming" ->
+                        this.PLAYER_PROFILE.getAsJsonObject("pets_data").getAsJsonObject("pet_care").get("pet_types_sacrificed").getAsJsonArray().size();
                 default -> -1;
             };
         } catch (Exception e) {

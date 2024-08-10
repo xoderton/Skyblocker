@@ -2,8 +2,8 @@ package de.hysky.skyblocker.skyblock.dungeon;
 
 import de.hysky.skyblocker.config.SkyblockerConfigManager;
 import de.hysky.skyblocker.utils.ItemUtils;
-import de.hysky.skyblocker.utils.render.gui.ColorHighlight;
 import de.hysky.skyblocker.utils.container.SimpleContainerSolver;
+import de.hysky.skyblocker.utils.render.gui.ColorHighlight;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
 
 public class CroesusProfit extends SimpleContainerSolver {
     private static final Pattern ESSENCE_PATTERN = Pattern.compile("(?<type>[A-Za-z]+) Essence x(?<amount>\\d+)");
+
     public CroesusProfit() {
         super(".*Catacombs - Floor.*");
     }
@@ -97,10 +98,10 @@ public class CroesusProfit extends SimpleContainerSolver {
                 }
             }
         }
-        for (String item : chestItems){
+        for (String item : chestItems) {
             chestValue += getItemPrice(item);
         }
-        return chestValue-chestPrice;
+        return chestValue - chestPrice;
     }
 
 
@@ -111,19 +112,19 @@ public class CroesusProfit extends SimpleContainerSolver {
 
     // I did a thing :(
     private final Map<String, String> dungeonDropsNameToApiId = Util.make(new HashMap<>(), map -> {
-    	map.put("Enchanted Book (Ultimate Jerry I)", "ENCHANTMENT_ULTIMATE_JERRY_1");    // ultimate books start
-    	map.put("Enchanted Book (Ultimate Jerry II)", "ENCHANTMENT_ULTIMATE_JERRY_2");
-    	map.put("Enchanted Book (Ultimate Jerry III)", "ENCHANTMENT_ULTIMATE_JERRY_3");
-    	map.put("Enchanted Book (Bank I)", "ENCHANTMENT_ULTIMATE_BANK_1");
-    	map.put("Enchanted Book (Bank II)", "ENCHANTMENT_ULTIMATE_BANK_2");
-    	map.put("Enchanted Book (Bank III)", "ENCHANTMENT_ULTIMATE_BANK_3");
-    	map.put("Enchanted Book (Combo I)", "ENCHANTMENT_ULTIMATE_COMBO_1");
-    	map.put("Enchanted Book (Combo II)", "ENCHANTMENT_ULTIMATE_COMBO_2");
-    	map.put("Enchanted Book (No Pain No Gain I)", "ENCHANTMENT_ULTIMATE_NO_PAIN_NO_GAIN_1");
-    	map.put("Enchanted Book (No Pain No Gain II)", "ENCHANTMENT_ULTIMATE_NO_PAIN_NO_GAIN_2");
-    	map.put("Enchanted Book (Ultimate Wise I)", "ENCHANTMENT_ULTIMATE_WISE_1");
-    	map.put("Enchanted Book (Ultimate Wise II)", "ENCHANTMENT_ULTIMATE_WISE_2");
-    	map.put("Enchanted Book (Wisdom I)", "ENCHANTMENT_ULTIMATE_WISDOM_1");
+        map.put("Enchanted Book (Ultimate Jerry I)", "ENCHANTMENT_ULTIMATE_JERRY_1");    // ultimate books start
+        map.put("Enchanted Book (Ultimate Jerry II)", "ENCHANTMENT_ULTIMATE_JERRY_2");
+        map.put("Enchanted Book (Ultimate Jerry III)", "ENCHANTMENT_ULTIMATE_JERRY_3");
+        map.put("Enchanted Book (Bank I)", "ENCHANTMENT_ULTIMATE_BANK_1");
+        map.put("Enchanted Book (Bank II)", "ENCHANTMENT_ULTIMATE_BANK_2");
+        map.put("Enchanted Book (Bank III)", "ENCHANTMENT_ULTIMATE_BANK_3");
+        map.put("Enchanted Book (Combo I)", "ENCHANTMENT_ULTIMATE_COMBO_1");
+        map.put("Enchanted Book (Combo II)", "ENCHANTMENT_ULTIMATE_COMBO_2");
+        map.put("Enchanted Book (No Pain No Gain I)", "ENCHANTMENT_ULTIMATE_NO_PAIN_NO_GAIN_1");
+        map.put("Enchanted Book (No Pain No Gain II)", "ENCHANTMENT_ULTIMATE_NO_PAIN_NO_GAIN_2");
+        map.put("Enchanted Book (Ultimate Wise I)", "ENCHANTMENT_ULTIMATE_WISE_1");
+        map.put("Enchanted Book (Ultimate Wise II)", "ENCHANTMENT_ULTIMATE_WISE_2");
+        map.put("Enchanted Book (Wisdom I)", "ENCHANTMENT_ULTIMATE_WISDOM_1");
         map.put("Enchanted Book (Wisdom II)", "ENCHANTMENT_ULTIMATE_WISDOM_2");
         map.put("Enchanted Book (Last Stand I)", "ENCHANTMENT_ULTIMATE_LAST_STAND_1");
         map.put("Enchanted Book (Last Stand II)", "ENCHANTMENT_ULTIMATE_LAST_STAND_2");
@@ -148,7 +149,7 @@ public class CroesusProfit extends SimpleContainerSolver {
         map.put("Fuming Potato Book", "FUMING_POTATO_BOOK");
         map.put("Recombobulator 3000", "RECOMBOBULATOR_3000");
         map.put("Necromancer's Brooch", "NECROMANCER_BROOCH");
-        map.put("ESSENCE_WITHER","ESSENCE_WITHER");     // Essences. Really stupid way of doing this
+        map.put("ESSENCE_WITHER", "ESSENCE_WITHER");     // Essences. Really stupid way of doing this
         map.put("ESSENCE_UNDEAD", "ESSENCE_UNDEAD");
         map.put("ESSENCE_DRAGON", "ESSENCE_DRAGON");
         map.put("ESSENCE_SPIDER", "ESSENCE_SPIDER");

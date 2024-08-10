@@ -67,7 +67,8 @@ public class UpcomingEventsTab extends ItemListWidget.TabContainerWidget {
         hovered = null;
         for (EventRenderer eventRenderer : events) {
             eventRenderer.render(context, x + 1, eventsY, mouseX, mouseY);
-            if (isMouseOver(mouseX, mouseY) && eventRenderer.isMouseOver(mouseX, mouseY, x+1, eventsY)) hovered = eventRenderer;
+            if (isMouseOver(mouseX, mouseY) && eventRenderer.isMouseOver(mouseX, mouseY, x + 1, eventsY))
+                hovered = eventRenderer;
             eventsY += eventRenderer.getHeight();
 
         }
@@ -108,7 +109,7 @@ public class UpcomingEventsTab extends ItemListWidget.TabContainerWidget {
                 MutableText formatted = Text.literal(" ").append(Text.translatable("skyblocker.events.tab.startsIn", Utils.getDurationText((int) (events.peekFirst().start() - time)))).formatted(Formatting.YELLOW);
                 context.drawText(textRenderer, formatted, x, y + textRenderer.fontHeight, -1, true);
             } else {
-                MutableText formatted = Text.literal(" ").append(Text.translatable( "skyblocker.events.tab.endsIn", Utils.getDurationText((int) (events.peekFirst().start() + events.peekFirst().duration() - time)))).formatted(Formatting.GREEN);
+                MutableText formatted = Text.literal(" ").append(Text.translatable("skyblocker.events.tab.endsIn", Utils.getDurationText((int) (events.peekFirst().start() + events.peekFirst().duration() - time)))).formatted(Formatting.GREEN);
                 context.drawText(textRenderer, formatted, x, y + textRenderer.fontHeight, -1, true);
             }
 
@@ -119,7 +120,7 @@ public class UpcomingEventsTab extends ItemListWidget.TabContainerWidget {
         }
 
         public boolean isMouseOver(int mouseX, int mouseY, int x, int y) {
-            return mouseX >= x && mouseX <= x + 131 && mouseY >= y && mouseY <= y+getHeight();
+            return mouseX >= x && mouseX <= x + 131 && mouseY >= y && mouseY <= y + getHeight();
         }
 
         public List<TooltipComponent> getTooltip() {

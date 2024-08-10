@@ -14,7 +14,9 @@ public class TreasureHunter extends ChatPatternListener {
 
     private static final Map<String, String> locations;
 
-    public TreasureHunter() { super("^\\[NPC] Treasure Hunter: ([a-zA-Z, '\\-\\.]*)$"); }
+    public TreasureHunter() {
+        super("^\\[NPC] Treasure Hunter: ([a-zA-Z, '\\-\\.]*)$");
+    }
 
     @Override
     public ChatFilterResult state() {

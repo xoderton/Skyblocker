@@ -23,12 +23,7 @@ import net.minecraft.text.TextColor;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -98,7 +93,7 @@ public class PartyEntry extends ElementListWidget.Entry<PartyEntry> {
                     }
                 } else {
                     try {
-                    	floorSkullProperties = PartyFinderScreen.floorIconsNormal.getOrDefault(floor.toLowerCase(), new PropertyMap());
+                        floorSkullProperties = PartyFinderScreen.floorIconsNormal.getOrDefault(floor.toLowerCase(), new PropertyMap());
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }

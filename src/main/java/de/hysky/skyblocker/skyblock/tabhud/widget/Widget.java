@@ -1,9 +1,6 @@
 package de.hysky.skyblocker.skyblock.tabhud.widget;
 
-import java.util.ArrayList;
-
 import com.mojang.blaze3d.systems.RenderSystem;
-
 import de.hysky.skyblocker.config.SkyblockerConfigManager;
 import de.hysky.skyblocker.skyblock.tabhud.util.PlayerListMgr;
 import de.hysky.skyblocker.skyblock.tabhud.widget.component.Component;
@@ -16,6 +13,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+
+import java.util.ArrayList;
 
 /**
  * Abstract base class for a Widget.

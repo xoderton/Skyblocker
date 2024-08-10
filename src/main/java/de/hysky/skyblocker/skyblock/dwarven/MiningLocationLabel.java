@@ -1,5 +1,6 @@
 package de.hysky.skyblocker.skyblock.dwarven;
 
+import com.mojang.serialization.Codec;
 import de.hysky.skyblocker.config.SkyblockerConfigManager;
 import de.hysky.skyblocker.utils.Utils;
 import de.hysky.skyblocker.utils.render.RenderHelper;
@@ -14,8 +15,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
 import java.awt.*;
-
-import com.mojang.serialization.Codec;
 
 // TODO: Clean up into the waypoint system with a new `DistancedWaypoint` that extends `NamedWaypoint` for this and secret waypoints.
 public record MiningLocationLabel(Category category, Vec3d centerPos) implements Renderable {

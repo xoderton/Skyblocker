@@ -2,7 +2,6 @@ package de.hysky.skyblocker.skyblock.dungeon.partyfinder;
 
 import com.google.gson.JsonObject;
 import com.mojang.authlib.properties.PropertyMap;
-
 import de.hysky.skyblocker.SkyblockerMod;
 import de.hysky.skyblocker.utils.ItemUtils;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
@@ -172,8 +171,10 @@ public class PartyFinderScreen extends Screen {
         nextPageButton.active = false;
 
         // Settings container
-        if (this.settingsContainer == null) this.settingsContainer = new FinderSettingsContainer(partyEntryListWidget.getRowLeft(), entryListTopY - 12, widget_height + 12);
-        else settingsContainer.setDimensionsAndPosition(partyEntryListWidget.getRowWidth() - 2, widget_height + 12, partyEntryListWidget.getRowLeft(), entryListTopY - 12);
+        if (this.settingsContainer == null)
+            this.settingsContainer = new FinderSettingsContainer(partyEntryListWidget.getRowLeft(), entryListTopY - 12, widget_height + 12);
+        else
+            settingsContainer.setDimensionsAndPosition(partyEntryListWidget.getRowWidth() - 2, widget_height + 12, partyEntryListWidget.getRowLeft(), entryListTopY - 12);
 
 
         // Buttons at the top

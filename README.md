@@ -12,34 +12,37 @@
 
 Hypixel Skyblock Mod for Minecraft 1.21
 
-Installation guide is [here](https://github.com/SkyblockerMod/Skyblocker/wiki/installation) or use our [Modpack](https://modrinth.com/modpack/skyblocker-modpack)
+Installation guide is [here](https://github.com/SkyblockerMod/Skyblocker/wiki/installation) or use
+our [Modpack](https://modrinth.com/modpack/skyblocker-modpack)
+
 ## Features
 
 <details open>
 <summary>Features</summary>
 
 ### Dungeon Features:
+
 - **Fancy Party Finder GUI**
 - **Secrets Waypoint Highlight:** Fully customizable
 - **Minimap & Score**
 - **Starred Mob Glow**
 - **Croesus Helper:**
-  - Highlight not opened chests
-  - Profit calculator
+    - Highlight not opened chests
+    - Profit calculator
 - **Puzzle Solver:**
-  - *Three Weirdos*
-  - *Blaze*
-  - *Creeper Beams*
-  - *Quiz - Ouro the Omniscient*
-  - *Tic Tac Toe*
-  - *Waterboard*
-  - *Silverfish*
-  - *Ice Fill*
-  - *Boulder*
-  - Terminal:
-    - *Order*
-    - *Coloured Items*
-    - *Item Name*
+    - *Three Weirdos*
+    - *Blaze*
+    - *Creeper Beams*
+    - *Quiz - Ouro the Omniscient*
+    - *Tic Tac Toe*
+    - *Waterboard*
+    - *Silverfish*
+    - *Ice Fill*
+    - *Boulder*
+    - Terminal:
+        - *Order*
+        - *Coloured Items*
+        - *Item Name*
 - **Rare Drop Special Effects**
 - **Chest Profit Calculator**
 - **F3/M3 Fire Freeze Staff Timer**
@@ -56,84 +59,93 @@ Installation guide is [here](https://github.com/SkyblockerMod/Skyblocker/wiki/in
 - **Hide Soulweaver Skulls**
 
 ### Kuudra Features:
+
 - **Kuudra waypoints:**
-  - *Supplies*
-  - *Supply Piles*
-  - *Fuel Cells*
-  - *Safe Spots*
-  - *Pearl*
+    - *Supplies*
+    - *Supply Piles*
+    - *Fuel Cells*
+    - *Safe Spots*
+    - *Pearl*
 - **No arrow poison warning**
 - **Low arrow poison warning**
 
 ### Item and Armor Customization:
+
 - *Item Renaming*
 - *Custom Armor Dye Colors*
 - *Custom Armor Trims*
 - *Custom Animated Dyes*
 
 ### Health and Status Bars:
+
 - **Bars:**
-  - *Health and absorption*
-  - *Mana*
-  - *Defense*
-  - *XP*
+    - *Health and absorption*
+    - *Mana*
+    - *Defense*
+    - *XP*
 - **Vanilla health/xp and fancy bar shown in parallel**
 
 ### Dwarven Mines / Crystal Hollows / Glacite Mining:
+
 - **Dwarven Mines Solver:**
-  - Fetchur
-  - Puzzler
+    - Fetchur
+    - Puzzler
 - **Crystal Hollows:**
-  - Crystal Hollows Map:
-    - *Shows players location in Crystal Hollows*
-    - *Highlights important waypoints in Crystal Hollows*
-  - Crystal Hollows Waypoints:
-    - *Shows waypoints for special locations*
-    - *Find locations in chat messages*
-    - *Share waypoints*
-  - Metal detector helper
+    - Crystal Hollows Map:
+        - *Shows players location in Crystal Hollows*
+        - *Highlights important waypoints in Crystal Hollows*
+    - Crystal Hollows Waypoints:
+        - *Shows waypoints for special locations*
+        - *Find locations in chat messages*
+        - *Share waypoints*
+    - Metal detector helper
 - **Glacite Tunnels:**
-  - *Cold Overlay*
+    - *Cold Overlay*
 - **Commission HUD:**
-  - *Provides information on Dwarven Mines / Crystal Hollows / Glacite Mining quests*
+    - *Provides information on Dwarven Mines / Crystal Hollows / Glacite Mining quests*
 - **Powder HUD**
 - **Ordered Waypoints**
 
 ### Rift Features:
+
 - **Mirrorverse Waypoints**
 - **Enigma soul waypoint**
 - **Blobbercysts Glow**
 
 ### Spider's Den Features:
+
 - **Hidden Relic Helper**
 
 ### Slayer Helper:
+
 - **Vampire:**
-  - Effigy Waypoints
-  - Healing Melon Indicator
-  - Twinclaws Ice Indicator
-  - Steak Stake Indicator
+    - Effigy Waypoints
+    - Healing Melon Indicator
+    - Twinclaws Ice Indicator
+    - Steak Stake Indicator
 - **Enderman:**
-  - Beacon Highlighting
-  - Yang Glyph Notification
-  - Nukekubi Head Highlighting
+    - Beacon Highlighting
+    - Yang Glyph Notification
+    - Nukekubi Head Highlighting
 
 ### Garden Features:
+
 - **Farming HUD:**
-  - Counter
-  - Crops/min
-  - Coins/h
-  - Blocks/s
-  - Farming Level
-  - Farming XP/h
-  - Yaw and Pitch
+    - Counter
+    - Crops/min
+    - Coins/h
+    - Blocks/s
+    - Farming Level
+    - Farming XP/h
+    - Yaw and Pitch
 - **Visitor Helper:**
-  - Buy items that visitors require from bazaar by clicking the text
-  - Copy amount to clipboard
+    - Buy items that visitors require from bazaar by clicking the text
+    - Copy amount to clipboard
 - **Disable title and chat messages for Melon/Pumpkin Dicer**
 - **Basic garden mouse locking feature (set mouse sensitivity to 0)**
 
 ### Visual Enhancements:
+
 - **Compact damage**
 - **Waypoints for commissions in dwarven mines and glacite tunnels**
 - **Fancy Tab HUD:** Fully configurable with a resource pack.
@@ -142,51 +154,54 @@ Installation guide is [here](https://github.com/SkyblockerMod/Skyblocker/wiki/in
 - **Personal Compactor/Deletor Preview**
 - **Hide Fake Players in Social Interactions Screen**
 - **Item Rarity Backgrounds:**
-  - Circle or Square
+    - Circle or Square
 - **Item Cooldown Display**
 - **Configure Fire-Overlay Height**
 - **End HUD Widget:**
-  - Zealots:
-    - *Since last eye*
-    - *Total zealots kills*
-    - *Avg kills per eye*
-  - Endstone Protector:
-    - *stage*
-    - *Location*
+    - Zealots:
+        - *Since last eye*
+        - *Total zealots kills*
+        - *Avg kills per eye*
+    - Endstone Protector:
+        - *stage*
+        - *Location*
 - **Ender Nodes Helper**
 
 ### User Interface Enhancements:
+
 - **Search overlays for bz and ah**
 - **Slot Text:**
-  - *Attribute Shard Info Display*
-  - *Catacombs level*
-  - *Collection level*
-  - *Enchantment book level*
-  - *Minion level*
-  - *Pet level*
-  - *Potion level*
-  - *Prehistoric egg blocks walked*
-  - *Rancher's boots speed cap*
-  - *Skill level*
-  - *Skyblock level*
-  - *Essence Shop*
-  - *Your Essence*
-  - *Power Stone Guide*
-  - *Stats Tuning*
+    - *Attribute Shard Info Display*
+    - *Catacombs level*
+    - *Collection level*
+    - *Enchantment book level*
+    - *Minion level*
+    - *Pet level*
+    - *Potion level*
+    - *Prehistoric egg blocks walked*
+    - *Rancher's boots speed cap*
+    - *Skill level*
+    - *Skyblock level*
+    - *Essence Shop*
+    - *Your Essence*
+    - *Power Stone Guide*
+    - *Stats Tuning*
 - **Drill Fuel and Pickonimbus 2000 in Item Durability Bar**
 - **Hotbar Slot Lock Keybind:** Select the hotbar slot you want to lock/unlock and press the lock button.
 - **Item Tooltip:** (Provides information on)
-  - *NPC Sell Prices*
-  - *Motes Prices*
-  - *Bazaar (average, lowest bin)*
-  - *Auction House*
-  - *Museum*
-  - *Exotic Armor Identifier*
-  - *Item Quality*
-  - *Accessories Helper*
-- **Quicknav:** (Fully customizeable) Fast navigation between pets, armor, enderchest, skill, collection, crafting, enchant, anvil, warp dungeon, and warp hub.
+    - *NPC Sell Prices*
+    - *Motes Prices*
+    - *Bazaar (average, lowest bin)*
+    - *Auction House*
+    - *Museum*
+    - *Exotic Armor Identifier*
+    - *Item Quality*
+    - *Accessories Helper*
+- **Quicknav:** (Fully customizeable) Fast navigation between pets, armor, enderchest, skill, collection, crafting,
+  enchant, anvil, warp dungeon, and warp hub.
 - **Recipe Book:** Lists all Skyblock items in the vanilla recipe book, allowing you to see the recipe of the item.
-- **Backpack Preview:** After clicking your backpack or enderchest once, you can hover over the backpack or enderchest and hold Shift to preview its contents.
+- **Backpack Preview:** After clicking your backpack or enderchest once, you can hover over the backpack or enderchest
+  and hold Shift to preview its contents.
 - **New Year Cakes Helper**
 - **Fancy Crafting Table**
 - **Info Screen**
@@ -195,33 +210,37 @@ Installation guide is [here](https://github.com/SkyblockerMod/Skyblocker/wiki/in
 - **Sign calculator**
 
 ### Barn Features:
+
 - **Barn Solver:**
-  - *Treasure Hunter*
-  - *Hungry Hiker*
+    - *Treasure Hunter*
+    - *Hungry Hiker*
 
 ### Chat Features:
+
 - **Custom Chat Rules**
 - **Warp command auto-complete**
 - **Hide Messages:**
-  - *Ability Cooldown*
-  - *Heal*
-  - *Aspect of the End (AOTE)*
-  - *Implosion*
-  - *Molten Wave*
-  - *`/show command`*
-  - *Teleport Pad Messages*
-  - *Sky Mall*
+    - *Ability Cooldown*
+    - *Heal*
+    - *Aspect of the End (AOTE)*
+    - *Implosion*
+    - *Molten Wave*
+    - *`/show command`*
+    - *Teleport Pad Messages*
+    - *Sky Mall*
 
 ### Miscellaneous Solvers:
+
 - **Experiments Solvers**
 - **Fishing:**
-  - Helper (Includes sound notifications)
-  - Fishing rod timer (change color after 20 seconds)
-  - Hide other rods
+    - Helper (Includes sound notifications)
+    - Fishing rod timer (change color after 20 seconds)
+    - Hide other rods
 - **Mythological Ritual Helper**
 - **Chocolate factory Helper**
 
 ### Miscellaneous Features:
+
 - **[Roughly Enough Items (REI)](https://modrinth.com/mod/rei) and [EMI](https://modrinth.com/mod/emi) Support**
 - **Item Protection**
 - **Discord Rich Presence:** Allows users to show their Piggy, Bits, or location, along with a custom message.
@@ -253,6 +272,7 @@ ___
 | /skyblocker   dungeons secrets | addWaypoint \| addWaypointRelatively \[pos\] \[secretIndex\] \[category\] \[name\] |                                                                                                                                                                                                                                                                                           |
 | /skyblocker   dungeons secrets |                 removeWaypoint \| removeWaypointRelatively \[pos\]                 |                                                                                                                                                                                                                                                                                           |
 | /skyblocker custom animatedDye |         \[\<hex1\>\] \<hex2\> \<samples\> \<cycleBack\> \[\<tickDelay\>\]          | apply a custom animated dye to your armour <br/>  Ex: /skyblocker custom animatedDye 0061ff 60efff 10 true 4                                                                                                                                                                              |
+
 ---
 
 ## Images
@@ -308,7 +328,6 @@ information.
 |:--------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------:|----------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 |                                [Grayray75](https://github.com/Grayray75)                                 |                                [alexiayaa](https://github.com/alexiayaa)                                 | [KhafraDev](https://github.com/KhafraDev)                                                                | [btwonion](https://github.com/btwonion)                                                                |
 
-
 | [<img alt="KhafraDev" src="https://github.com/Kaluub.png" width="100">](https://github.com/Kaluub) | [<img alt="KhafraDev" src="https://github.com/Emirlol.png" width="100">](https://github.com/Emirlol) | [<img alt="KhafraDev" src="https://github.com/LegendaryLilac.png" width="100">](https://github.com/LegendaryLilac) | [<img alt="KhafraDev" src="https://github.com/olim88.png" width="100">](https://github.com/olim88) |
 |----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | [Kaluub](https://github.com/Kaluub)                                                                | [Emirlol](https://github.com/Emirlol)                                                                | [LegendaryLilac](https://github.com/LegendaryLilac)                                                                | [olim88](https://github.com/olim88)                                                                |
@@ -316,7 +335,7 @@ information.
 | [<img alt="Ghost-3" src="https://github.com/Ghost-3.png" width="100">](https://github.com/Ghost-3) | [<img alt="esteban4567890" src="https://github.com/esteban4567890.png" width="100">](https://github.com/esteban4567890) | [<img alt="Fluboxer" src="https://github.com/Fluboxer.png" width="100">](https://github.com/Fluboxer) | [<img alt="VeritasDL" src="https://github.com/VeritasDL.png" width="100">](https://github.com/VeritasDL) |
 |----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | [Ghost-3](https://github.com/Ghost-3)                                                              | [esteban4567890](https://github.com/esteban4567890)                                                                     | [Fluboxer](https://github.com/Fluboxer)                                                               | [VeritasDL](https://github.com/VeritasDL)                                                                |
-     
+
 | [<img alt="TheDearbear" src="https://github.com/TheDearbear.png" width="100">](https://github.com/TheDearbear) | [<img alt="BigloBot" src="https://github.com/BigloBot.png" width="100">](https://github.com/BigloBot) | [<img alt="f3shqt" src="https://github.com/f3shqt.png" width="100">](https://github.com/f3shqt) | [<img alt="UpFault" src="https://github.com/UpFault.png" width="100">](https://github.com/UpFault) |
 |----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | [TheDearbear](https://github.com/TheDearbear)                                                                  | [BigloBot](https://github.com/BigloBot)                                                               | [f3shqt](https://github.com/f3shqt)                                                             | [UpFault](https://github.com/UpFault)                                                              |
@@ -329,14 +348,16 @@ Russian ([HyperSoop](https://github.com/HyperSoop) & [CrimsonIsle](https://githu
 French ([edgarogh](https://github.com/edgarogh) & [Julienraptor01](https://github.com/Julienraptor01) & [viciscat](https://github.com/viciscat) & [Kiverty](https://github.com/Kiverty) & [maDU59](https://github.com/maDU59)) \
 Japanese ([hirochisan](https://github.com/hirochisan) & [AC19970](https://github.com/AC19970)) \
 Chinese ([catandA](https://github.com/catandA) & [AC19970](https://github.com/AC19970)) \
-Chinese (Simplified) ([catandA](https://github.com/catandA) & [PumpkinXD](https://github.com/PumpkinXD) & [user123321111](https://github.com/user123321111) & [sunnytia](https://github.com/sunnytia) & [AC19970](https://github.com/AC19970) & [x-yingcan-x](https://github.com/x-yingcan-x)) \
+Chinese (
+Simplified) ([catandA](https://github.com/catandA) & [PumpkinXD](https://github.com/PumpkinXD) & [user123321111](https://github.com/user123321111) & [sunnytia](https://github.com/sunnytia) & [AC19970](https://github.com/AC19970) & [x-yingcan-x](https://github.com/x-yingcan-x)) \
 Korean ([lantice3720](https://github.com/lantice3720)) \
 Spanish ([IngeSebastian](https://github.com/IngeSebastian)) \
 Norwegian Bokmål ([KdGaming0](https://github.com/KdGaming0)) \
 Norwegian Nynorsk ([KdGaming0](https://github.com/KdGaming0)) \
 Turkish ([Fix3dll](https://github.com/Fix3dll) & [Emirlol](https://github.com/Emirlol) & [MrBiscuit921](https://github.com/MrBiscuit921)) \
 Canadian English ([AzureAaron](https://github.com/AzureAaron)) \
-Portuguese (Brazil) ([OhRetro](https://github.com/OhRetro) & [AurinVPK](https://github.com/AurinVPK) & [yFelipeMC](https://github.com/yFelipeMC)) \
+Portuguese (
+Brazil) ([OhRetro](https://github.com/OhRetro) & [AurinVPK](https://github.com/AurinVPK) & [yFelipeMC](https://github.com/yFelipeMC)) \
 Dutch ([mitch030504](https://github.com/mitch030504)) \
 Italian ([Vricken](https://github.com/Vricken)) \
 Polish ([danehcan](https://github.com/danehcan))

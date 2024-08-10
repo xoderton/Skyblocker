@@ -23,7 +23,7 @@ public class DwarvenHudConfigScreen extends HudConfigScreen {
     }
 
     public DwarvenHudConfigScreen(Screen parent) {
-    	super(Text.literal("Dwarven HUD Config"), parent, List.of(HudCommsWidget.INSTANCE_CFG, HudPowderWidget.INSTANCE_CFG));
+        super(Text.literal("Dwarven HUD Config"), parent, List.of(HudCommsWidget.INSTANCE_CFG, HudPowderWidget.INSTANCE_CFG));
         if (SkyblockerConfigManager.get().mining.dwarvenHud.style == MiningConfig.DwarvenHudStyle.CLASSIC) {
             HudCommsWidget.INSTANCE_CFG.setWidth(200);
             HudCommsWidget.INSTANCE_CFG.setHeight(20 * CFG_COMMS.size());

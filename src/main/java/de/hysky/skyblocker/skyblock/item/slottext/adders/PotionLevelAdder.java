@@ -1,7 +1,7 @@
 package de.hysky.skyblocker.skyblock.item.slottext.adders;
 
-import de.hysky.skyblocker.skyblock.item.slottext.SlotText;
 import de.hysky.skyblocker.skyblock.item.slottext.SimpleSlotTextAdder;
+import de.hysky.skyblocker.skyblock.item.slottext.SlotText;
 import de.hysky.skyblocker.utils.ItemUtils;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -19,7 +19,7 @@ public class PotionLevelAdder extends SimpleSlotTextAdder {
         NbtCompound customData = ItemUtils.getCustomData(stack);
         String title = stack.getName().getString();
         if (customData.contains("potion_level", NbtElement.INT_TYPE) && !title.contains("Healer Class") && !title.contains("Class Passives")) {
-            if (title.contains("Healer Level ")){
+            if (title.contains("Healer Level ")) {
                 String level = title.replaceAll("\\D", "");
                 return SlotText.bottomRightList(Text.literal(level).withColor(0xFFFFFF));
             } else {

@@ -13,6 +13,7 @@ import net.minecraft.text.Text;
 public abstract class AbstractCustomHypixelGUI<T extends ScreenHandler> extends HandledScreen<T> implements ScreenHandlerListener {
 
     public boolean isWaitingForServer = true;
+
     public AbstractCustomHypixelGUI(T handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
         handler.addListener(this);
@@ -52,5 +53,6 @@ public abstract class AbstractCustomHypixelGUI<T extends ScreenHandler> extends 
     protected abstract void onSlotChange(T handler, int slotID, ItemStack stack);
 
     @Override
-    public void onPropertyUpdate(ScreenHandler handler, int property, int value) {}
+    public void onPropertyUpdate(ScreenHandler handler, int property, int value) {
+    }
 }

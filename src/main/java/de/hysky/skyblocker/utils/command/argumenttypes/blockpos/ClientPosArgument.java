@@ -11,17 +11,17 @@ import net.minecraft.util.math.Vec3d;
  * This removes the need for hacky workarounds such as creating new ServerCommandSources with null or 0 on every argument.
  */
 public interface ClientPosArgument {
-	Vec3d toAbsolutePos(FabricClientCommandSource source);
+    Vec3d toAbsolutePos(FabricClientCommandSource source);
 
-	Vec2f toAbsoluteRotation(FabricClientCommandSource source);
+    Vec2f toAbsoluteRotation(FabricClientCommandSource source);
 
-	default BlockPos toAbsoluteBlockPos(FabricClientCommandSource source) {
-		return BlockPos.ofFloored(this.toAbsolutePos(source));
-	}
+    default BlockPos toAbsoluteBlockPos(FabricClientCommandSource source) {
+        return BlockPos.ofFloored(this.toAbsolutePos(source));
+    }
 
-	boolean isXRelative();
+    boolean isXRelative();
 
-	boolean isYRelative();
+    boolean isYRelative();
 
-	boolean isZRelative();
+    boolean isZRelative();
 }

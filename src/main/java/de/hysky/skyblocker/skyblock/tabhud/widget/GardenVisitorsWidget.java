@@ -15,7 +15,7 @@ public class GardenVisitorsWidget extends Widget {
 
     @Override
     public void updateContent() {
-    	int offset = (PlayerListMgr.strAt(46) != null) ? 1 : 0;
+        int offset = (PlayerListMgr.strAt(46) != null) ? 1 : 0;
 
         if (PlayerListMgr.textAt(54 + offset) == null) {
             this.addComponent(new PlainTextComponent(Text.literal("No visitors!").formatted(Formatting.GRAY)));

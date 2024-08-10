@@ -65,7 +65,7 @@ public class NEURepoManager {
             try {
                 client.getNetworkHandler().onSynchronizeRecipes(packet);
             } catch (Exception e) {
-                LOGGER.info("[Skyblocker] recipe sync error" , e);
+                LOGGER.info("[Skyblocker] recipe sync error", e);
             }
         }
     }
@@ -122,6 +122,7 @@ public class NEURepoManager {
 
     /**
      * Runs the given runnable after the NEU repo is initialized.
+     *
      * @param runnable the runnable to run
      * @return a completable future of the given runnable
      */
